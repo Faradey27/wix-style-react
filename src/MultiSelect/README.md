@@ -1,6 +1,6 @@
 # MultiSelect component
 
->   Multi select with tags and AutoComplete.
+>   Multi select with tags and Autocomplete.
 
 ## MultiSelect Properties
 
