@@ -1,1 +1,1 @@
-export {default} from './AutoComplete.js';
+export {Autocomplete} from 'wix-ui-backoffice/Autocomplete';

@@ -1,7 +1,7 @@
 import React from 'react';
 import {children, optional, once} from '../Composite';
 import Label from '../Label';
-import AutoComplete from '../AutoComplete';
+import {Autocomplete} from '../Autocomplete';
 import InputAreaWithLabelComposite from '../Composite/InputAreaWithLabelComposite/InputAreaWithLabelComposite';
 
 const AutoCompleteComposite = ({...props, children}) => (
@@ -11,7 +11,7 @@ const AutoCompleteComposite = ({...props, children}) => (
 );
 
 AutoCompleteComposite.propTypes = {
-  children: children(optional(Label), once(AutoComplete))
+  children: children(optional(Label), once(Autocomplete))
 };
 
 AutoCompleteComposite.displayName = 'AutoCompleteComposite';
