@@ -1,5 +1,5 @@
 import React from 'react';
-import {Autocomplete} from 'wix-style-react/Autocomplete';
+import {Autocomplete} from 'wix-style-react/StylableAutocomplete';
 import {object, node} from 'prop-types';
 
 const replacer = (key, value) => {
