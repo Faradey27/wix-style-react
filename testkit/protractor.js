@@ -33,6 +33,9 @@ export const dataTableTestkitFactory = protractorTestkitFactoryCreator(dataTable
 import breadcrumbsDriverFactory from '../src/Breadcrumbs/Breadcrumbs.protractor.driver';
 export const breadcrumbsTestkitFactory = protractorTestkitFactoryCreator(breadcrumbsDriverFactory);
 
+import {autocompleteDriverFactory} from '../src/StylableAutocomplete/Autocomplete.protractor.driver';
+export const autocompleteTestkitFactory = protractorTestkitFactoryCreator(autocompleteDriverFactory);
+
 import checkboxDriverFactory from '../src/Checkbox/Checkbox.protractor.driver';
 export const checkboxTestkitFactory = protractorTestkitFactoryCreator(checkboxDriverFactory);
 
@@ -41,9 +44,6 @@ export const dropdownTestkitFactory = protractorTestkitFactoryCreator(dropdownDr
 
 import buttonWithOptionsDriverFactory from '../src/ButtonWithOptions/ButtonWithOptions.protractor.driver';
 export const buttonWithOptionsTestkitFactory = protractorTestkitFactoryCreator(buttonWithOptionsDriverFactory);
-
-import {autocompleteDriverFactory} from '../src/StylableAutocomplete/Autocomplete.protractor.driver';
-export const autocompleteTestkitFactory = protractorTestkitFactoryCreator(autocompleteDriverFactory);
 
 import languagePickerDriverFactory from '../src/LanguagePicker/LanguagePicker.protractor.driver';
 export const languagePickerTestkitFactory = protractorTestkitFactoryCreator(languagePickerDriverFactory);
