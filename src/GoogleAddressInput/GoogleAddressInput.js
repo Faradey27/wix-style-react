@@ -24,7 +24,7 @@ class GoogleAddressInput extends React.Component {
       value: props.value || ''
     };
 
-    this.autoCompleteRequestId = 0;
+    this.autocompleteRequestId = 0;
     this.geocodeRequestId = 0;
     this.client = new props.Client();
 
@@ -211,7 +211,7 @@ class GoogleAddressInput extends React.Component {
       filterTypes
     } = this.props;
 
-    const requestId = ++this.autoCompleteRequestId;
+    const requestId = ++this.autocompleteRequestId;
 
     return new Promise(resolve => {
 
@@ -236,7 +236,7 @@ class GoogleAddressInput extends React.Component {
         return Promise.resolve([]);
       }
 
-      if (requestId !== this.autoCompleteRequestId) {
+      if (requestId !== this.autocompleteRequestId) {
         return Promise.resolve([]);
       }
 

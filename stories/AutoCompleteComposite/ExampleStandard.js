@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import AutoCompleteCompositeExample from './AutoCompleteCompositeTemplate';
+import AutocompleteCompositeExample from './AutocompleteCompositeTemplate';
 import Input from '../../src/Input';
 import Label from '../../src/Label';
 import ToggleSwitch from '../../src/ToggleSwitch';
@@ -34,7 +34,7 @@ class ExampleStandard extends Component {
       appearance: 'T1.1',
       children: 'First name'
     },
-    autoComplete: {
+    autocomplete: {
       size: 'normal',
       placeholder: 'Please start typing...',
       options
@@ -100,8 +100,8 @@ class ExampleStandard extends Component {
             <div className={styles.flex}>
               <Input
                 size="small"
-                value={this.state.autoComplete.placeholder}
-                onChange={e => this.setComponentState('autoComplete', {placeholder: e.target.value})}
+                value={this.state.autocomplete.placeholder}
+                onChange={e => this.setComponentState('autocomplete', {placeholder: e.target.value})}
                 />
             </div>
           </div>
@@ -110,8 +110,8 @@ class ExampleStandard extends Component {
             <div className={styles.flex}>
               <RadioGroup
                 display="horizontal"
-                value={this.state.autoComplete.size}
-                onChange={size => this.setComponentState('autoComplete', {size})}
+                value={this.state.autocomplete.size}
+                onChange={size => this.setComponentState('autocomplete', {size})}
                 >
                 <RadioGroup.Radio value="small">Small</RadioGroup.Radio>
                 <RadioGroup.Radio value="normal">Normal</RadioGroup.Radio>
@@ -121,7 +121,7 @@ class ExampleStandard extends Component {
           </div>
         </div>
         <div className={styles.output}>
-          <AutoCompleteCompositeExample {...this.state} onChange={this.props.onChange}/>
+          <AutocompleteCompositeExample {...this.state} onChange={this.props.onChange}/>
         </div>
       </from>
     );

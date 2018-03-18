@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import AutoCompleteComposite from '../../src/AutoCompleteComposite';
+import AutocompleteComposite from '../../src/AutocompleteComposite';
 import {Autocomplete} from '../../src/StylableAutocomplete';
 import Label from '../../src/Label';
 
@@ -25,10 +25,10 @@ export default class Form extends Component {
 
   getComponent() {
     return (
-      <AutoCompleteComposite>
+      <AutocompleteComposite>
         {this.props.withLabel ? <Label for="firstName" {...this.props.label}/> : null}
         <Autocomplete id="firstName" {...this.props.autocomplete}/>
-      </AutoCompleteComposite>
+      </AutocompleteComposite>
     );
   }
 

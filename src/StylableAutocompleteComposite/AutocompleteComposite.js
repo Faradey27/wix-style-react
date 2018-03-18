@@ -4,16 +4,16 @@ import Label from '../Label';
 import {Autocomplete} from '../StylableAutocomplete';
 import InputAreaWithLabelComposite from '../Composite/InputAreaWithLabelComposite/InputAreaWithLabelComposite';
 
-const AutoCompleteComposite = ({...props, children}) => (
+const AutocompleteComposite = ({...props, children}) => (
   <InputAreaWithLabelComposite {...props}>
     {children}
   </InputAreaWithLabelComposite>
 );
 
-AutoCompleteComposite.propTypes = {
+AutocompleteComposite.propTypes = {
   children: children(optional(Label), once(Autocomplete))
 };
 
-AutoCompleteComposite.displayName = 'AutoCompleteComposite';
+AutocompleteComposite.displayName = 'AutocompleteComposite';
 
-export default AutoCompleteComposite;
+export default AutocompleteComposite;

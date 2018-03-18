@@ -75,8 +75,8 @@ export const textFieldTestkitFactory = enzymeTestkitFactoryCreator(textFieldDriv
 import dropdownCompositeDriverFactory from '../src/DropdownComposite/DropdownComposite.driver';
 export const dropdownCompositeTestkitFactory = enzymeTestkitFactoryCreator(dropdownCompositeDriverFactory);
 
-import autoCompleteCompositeDriverFactory from '../src/AutoCompleteComposite/AutoCompleteComposite.driver';
-export const autoCompleteCompositeTestkitFactory = enzymeTestkitFactoryCreator(autoCompleteCompositeDriverFactory);
+import autocompleteCompositeDriverFactory from '../src/AutocompleteComposite/AutocompleteComposite.driver';
+export const autocompleteCompositeTestkitFactory = enzymeTestkitFactoryCreator(autocompleteCompositeDriverFactory);
 
 import multiSelectCompositeDriverFactory from '../src/MultiSelectComposite/MultiSelectComposite.driver';
 export const multiSelectCompositeTestkitFactory = enzymeTestkitFactoryCreator(multiSelectCompositeDriverFactory);
