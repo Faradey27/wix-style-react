@@ -39,6 +39,9 @@ export const pageHeaderTestkitFactory = testkitFactoryCreator(pageHeaderDriverFa
 import languagePickerDriverFactory from '../src/LanguagePicker/LanguagePicker.driver';
 export const languagePickerTestkitFactory = testkitFactoryCreator(languagePickerDriverFactory);
 
+import {autocompleteDriverFactory} from '../src/StylableAutocomplete/Autocomplete.driver';
+export const autocompleteTestkitFactory = testkitFactoryCreator(autocompleteDriverFactory);
+
 import dropdownDriverFactory from '../src/Dropdown/Dropdown.driver';
 export const dropdownTestkitFactory = testkitFactoryCreator(dropdownDriverFactory);
 
