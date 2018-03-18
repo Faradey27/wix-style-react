@@ -3,7 +3,7 @@ import InputAreaWithLabelComposite from './InputAreaWithLabelComposite';
 import Label from '../../Label';
 import Input from '../../Input';
 import InputArea from '../../InputArea';
-import {Autocomplete} from '../../Autocomplete';
+import {Autocomplete} from '../../StylableAutocomplete';
 import textAreaDriverFactory from '../../TextArea/TextArea.driver';
 import textFieldDriverFactory from '../../TextField/TextField.driver';
 import autoCompleteCompositeDriverFactory from '../../AutoCompleteComposite/AutoCompleteComposite.driver';

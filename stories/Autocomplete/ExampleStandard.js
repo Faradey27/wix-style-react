@@ -1,5 +1,5 @@
 import React from 'react';
-import {Autocomplete} from 'wix-style-react/Autocomplete';
+import {Autocomplete} from 'wix-style-react/StylableAutocomplete';
 import {generateOptions} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionsExample';
 
 const style = {
