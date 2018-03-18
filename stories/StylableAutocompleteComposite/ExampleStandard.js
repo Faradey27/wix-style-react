@@ -6,16 +6,16 @@ import Input from '../../src/Input';
 import Label from '../../src/Label';
 import ToggleSwitch from '../../src/ToggleSwitch';
 import RadioGroup from '../../src/RadioGroup';
+import {Autocomplete} from '../../src/StylableAutocomplete';
 
 import styles from './ExampleStandard.scss';
 
 const options = [
-  {id: 1, value: 'First Option'},
-  {id: 2, value: 'Second Option'},
-  {id: 3, value: 'Third Option'},
-  {id: 4, value: 'Fourth Option'},
-  {id: 4, value: 'Fifth Option'}
-];
+  Autocomplete.createOption({id: 1, value: 'First Option'}),
+  Autocomplete.createOption({id: 2, value: 'Second Option'}),
+  Autocomplete.createOption({id: 3, value: 'Third Option'}),
+  Autocomplete.createOption({id: 4, value: 'Fourth Option'}),
+  Autocomplete.createOption({id: 5, value: 'Fifth Option'})];
 
 class ExampleStandard extends Component {
 

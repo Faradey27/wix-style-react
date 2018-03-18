@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import AutocompleteComposite from '../../src/AutocompleteComposite';
+import AutocompleteComposite from '../../src/StylableAutocompleteComposite';
 import {Autocomplete} from '../../src/StylableAutocomplete';
 import Label from '../../src/Label';
 

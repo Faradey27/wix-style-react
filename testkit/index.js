@@ -75,7 +75,7 @@ export const textFieldTestkitFactory = testkitFactoryCreator(textFieldDriverFact
 import dropdownCompositeDriverFactory from '../src/DropdownComposite/DropdownComposite.driver';
 export const dropdownCompositeTestkitFactory = testkitFactoryCreator(dropdownCompositeDriverFactory);
 
-import autocompleteCompositeDriverFactory from '../src/AutocompleteComposite/AutocompleteComposite.driver';
+import autocompleteCompositeDriverFactory from '../src/StylableAutocompleteComposite/AutocompleteComposite.driver';
 export const autocompleteCompositeTestkitFactory = testkitFactoryCreator(autocompleteCompositeDriverFactory);
 
 import multiSelectCompositeDriverFactory from '../src/MultiSelectComposite/MultiSelectComposite.driver';
