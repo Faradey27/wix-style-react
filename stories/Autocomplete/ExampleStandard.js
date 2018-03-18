@@ -1,5 +1,6 @@
 import React from 'react';
 import {Autocomplete} from 'wix-style-react/Autocomplete';
+import {generateOptions} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionsExample';
 
 const style = {
   display: 'inline-block',
@@ -8,26 +9,17 @@ const style = {
   lineHeight: '22px'
 };
 
-const options =
-    Array.from(Array(20))
-      .map((x, index) => Autocomplete.createOption({id: index, value: `value${index}`}));
-
-options[2] = Autocomplete.createOption({id: 2, isDisabled: true, value: `Disabled item`});
-options[5] = Autocomplete.createDivider();
-options[8].value = 'This is a very very very very very long option';
-options[12] = Autocomplete.createDivider('Divider');
-options[13] = Autocomplete.createOption({id: 13, value: `Custom Item`, render: value => <span style={{color: 'red'}}>{value}</span>});
-
+const options = generateOptions((args = {}) => Autocomplete.createDivider(args.value));
 export default () =>
   <div>
-    <div style={style} className="ltr">
-      Left to right<Autocomplete data-hook="story-autocomplete" inputProps={{placeholder: 'Start typing'}} options={options}/>
+    <div style={style}>
+      Left to right<Autocomplete data-hook="story-autocomplete" placeholder="Start typing" options={options}/>
     </div>
-    <div style={style} className="rtl">
+    <div style={style} dir="rtl">
       Right to left<Autocomplete options={options}/>
     </div>
     <div style={style}>
-      Disabled<Autocomplete inputProps={{disabled: true}} options={options}/>
+      Disabled<Autocomplete disabled options={options}/>
     </div>
     <div style={style} className="ltr">
       Error<AutoComplete error errorMessage="This is an error message" options={rtlOptions}/>
