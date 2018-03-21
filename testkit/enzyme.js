@@ -39,7 +39,7 @@ export const buttonWithOptionsTestkitFactory = enzymeTestkitFactoryCreator(butto
 import languagePickerDriverFactory from '../src/LanguagePicker/LanguagePicker.driver';
 export const languagePickerTestkitFactory = enzymeTestkitFactoryCreator(languagePickerDriverFactory);
 
-import autocompleteDriverFactory from '../src/StylableAutocomplete/Autocomplete.driver';
+import {autocompleteDriverFactory} from '../src/StylableAutocomplete/Autocomplete.driver';
 export const autocompleteTestkitFactory = enzymeTestkitFactoryCreator(autocompleteDriverFactory);
 
 import dropdownDriverFactory from '../src/Dropdown/Dropdown.driver';

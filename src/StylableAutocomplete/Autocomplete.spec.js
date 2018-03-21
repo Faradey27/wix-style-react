@@ -1,5 +1,5 @@
 import React from 'react';
-import autocompleteDriverFactory from './Autocomplete.driver';
+import {autocompleteDriverFactory} from './Autocomplete.driver';
 import {Autocomplete} from './';
 import {createDriverFactory} from '../test-common';
 import {autocompleteTestkitFactory} from '../../testkit';
@@ -8,7 +8,7 @@ import {mount} from 'enzyme';
 import {isEnzymeTestkitExists} from 'wix-ui-test-utils/enzyme';
 import {isTestkitExists} from 'wix-ui-test-utils/vanilla';
 
-describe.skip('Autocomplete', () => {
+describe('Autocomplete', () => {
   const createDriver = createDriverFactory(autocompleteDriverFactory);
 
   it('should render autocomplete', () => {

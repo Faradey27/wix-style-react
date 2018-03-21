@@ -6,7 +6,7 @@ import {autocompleteCompositeTestkitFactory} from '../../testkit';
 import {autocompleteCompositeTestkitFactory as enzymeTextAreaTestkitFactory} from '../../testkit/enzyme';
 import {mount} from 'enzyme';
 
-describe.skip('AutocompleteComposite', () => {
+describe('AutocompleteComposite', () => {
   describe('testkit', () => {
     it('should exist', () => {
       const div = document.createElement('div');
