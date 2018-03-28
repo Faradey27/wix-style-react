@@ -4,7 +4,7 @@ import Markdown from 'wix-storybook-utils/Markdown';
 import TabbedView from 'wix-storybook-utils/TabbedView';
 import CodeExample from 'wix-storybook-utils/CodeExample';
 
-import ExampleStandard from './ExampleStandard';
+import {Example} from './ExampleStandard';
 import ExampleStandardRaw from '!raw-loader!./ExampleStandard';
 
 import {Autocomplete} from 'wix-style-react/StylableAutocomplete';
@@ -20,7 +20,7 @@ storiesOf('4. Selection', module)
         <Markdown/>
         <h1>Usage examples</h1>
         <CodeExample title="Standard" code={ExampleStandardRaw}>
-          <ExampleStandard options={options}/>
+          <Example options={options}/>
         </CodeExample>
         <br/>
         <h1>Creating Options</h1>

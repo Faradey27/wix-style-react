@@ -1,5 +1,6 @@
 import React from 'react';
 import {Autocomplete} from 'wix-style-react/StylableAutocomplete';
+import {array} from 'prop-types';
 
 const style = {
   display: 'inline-block',
@@ -8,7 +9,7 @@ const style = {
   lineHeight: '22px'
 };
 
-export default options =>
+export const Example = ({options}) =>
   <div>
     <div style={style}>
       Left to right<Autocomplete data-hook="story-autocomplete" placeholder="Start typing" options={options}/>
@@ -24,3 +25,6 @@ export default options =>
     </div>
   </div>;
 
+Example.propTypes = {
+  options: array
+};
