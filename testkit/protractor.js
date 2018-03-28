@@ -33,9 +33,6 @@ export const dataTableTestkitFactory = protractorTestkitFactoryCreator(dataTable
 import breadcrumbsDriverFactory from '../src/Breadcrumbs/Breadcrumbs.protractor.driver';
 export const breadcrumbsTestkitFactory = protractorTestkitFactoryCreator(breadcrumbsDriverFactory);
 
-import {autocompleteDriverFactory} from '../src/StylableAutocomplete/Autocomplete.protractor.driver';
-export const autocompleteTestkitFactory = protractorTestkitFactoryCreator(autocompleteDriverFactory);
-
 import checkboxDriverFactory from '../src/Checkbox/Checkbox.protractor.driver';
 export const checkboxTestkitFactory = protractorTestkitFactoryCreator(checkboxDriverFactory);
 
@@ -134,5 +131,6 @@ export const drillViewTestkitFactory = protractorTestkitFactoryCreator(drillView
 export {
   badgeTestkitFactory,
   stylableCounterBadgeTestkitFactory as counterBadgeTestkitFactory,
-  headingTestkitFactory
+  headingTestkitFactory,
+  autocompleteTestkitFactory
 } from 'wix-ui-backoffice/dist/src/testkit/protractor';
