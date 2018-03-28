@@ -1,6 +1,5 @@
 import React from 'react';
 import {Autocomplete} from 'wix-style-react/StylableAutocomplete';
-import {generateOptions} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionsExample';
 
 const style = {
   display: 'inline-block',
@@ -9,8 +8,7 @@ const style = {
   lineHeight: '22px'
 };
 
-const options = generateOptions((args = {}) => Autocomplete.createDivider(args.value));
-export default () =>
+export default options =>
   <div>
     <div style={style}>
       Left to right<Autocomplete data-hook="story-autocomplete" placeholder="Start typing" options={options}/>

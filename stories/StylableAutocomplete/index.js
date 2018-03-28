@@ -7,7 +7,11 @@ import CodeExample from 'wix-storybook-utils/CodeExample';
 import ExampleStandard from './ExampleStandard';
 import ExampleStandardRaw from '!raw-loader!./ExampleStandard';
 
+import {Autocomplete} from 'wix-style-react/StylableAutocomplete';
+import {generateOptions} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionsExample';
 import {OptionExample, DividerExample} from './Options';
+
+const options = generateOptions((args = {}) => Autocomplete.createDivider(args.value));
 
 storiesOf('4. Selection', module)
   .add('4.1 + Autocomplete', () =>
@@ -16,7 +20,7 @@ storiesOf('4. Selection', module)
         <Markdown/>
         <h1>Usage examples</h1>
         <CodeExample title="Standard" code={ExampleStandardRaw}>
-          <ExampleStandard/>
+          <ExampleStandard options={options}/>
         </CodeExample>
         <br/>
         <h1>Creating Options</h1>
