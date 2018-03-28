@@ -1,4 +1,4 @@
-# AutocompleteComposite component
+# AutoCompleteComposite component
 
 
 ## Properties
