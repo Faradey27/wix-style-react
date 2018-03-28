@@ -10,7 +10,7 @@ import autocompleteCompositeDriverFactory from '../../StylableAutocompleteCompos
 import {createDriverFactory} from '../../test-common';
 import Tooltip from '../../Tooltip/Tooltip';
 
-describe.skip('InputAreaWithLabelComposite', () => {
+describe('InputAreaWithLabelComposite', () => {
   const createTextAreaDriver = createDriverFactory(textAreaDriverFactory);
   const createTextFieldDriver = createDriverFactory(textFieldDriverFactory);
   const createAutocompleteDriver = createDriverFactory(autocompleteCompositeDriverFactory);
