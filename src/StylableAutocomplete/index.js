@@ -1,6 +1,6 @@
 import React from 'react';
-import {BOAutocomplete} from 'wix-ui-backoffice/Autocomplete';
-import {Autocomplete as OldAutocomplete} from '../DeprecatedAutoComplete';
+import {Autocomplete as BOAutocomplete} from 'wix-ui-backoffice/Autocomplete';
+import {default as OldAutocomplete} from '../DeprecatedAutoComplete';
 import {string} from 'prop-types';
 
 export const Autocomplete = props => {
@@ -11,6 +11,9 @@ export const Autocomplete = props => {
   return <BOAutocomplete {...props}/>;
 };
 
+Autocomplete.createOption = BOAutocomplete.createOption;
+Autocomplete.createDivider = BOAutocomplete.createDivider;
 Autocomplete.propTypes = {
-  theme: string
+  theme: string,
+  ...BOAutocomplete.propTypes
 };
