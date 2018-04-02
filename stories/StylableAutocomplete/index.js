@@ -4,6 +4,7 @@ import Markdown from 'wix-storybook-utils/Markdown';
 import TabbedView from 'wix-storybook-utils/TabbedView';
 import CodeExample from 'wix-storybook-utils/CodeExample';
 
+import Text from '../../src/Text';
 import {Example} from './ExampleStandard';
 import ExampleStandardRaw from '!raw-loader!./ExampleStandard';
 
@@ -14,11 +15,14 @@ const options = generateOptions((args = {}) => Autocomplete.createDivider(args.v
 
 storiesOf('4. Selection', module)
   .add('4.1 + Autocomplete', () =>
-    <TabbedView tabs={['API', 'TestKits']}>
+    <TabbedView tabs={['API']}>
       <div>
-        <Markdown/>
-        <h1>Usage examples</h1>
-        <CodeExample title="Standard" code={ExampleStandardRaw}>
+        <Markdown source={`# \`<Autocomplete/>\``}/>
+        <div style={{background: 'azure', display: 'inline-block'}}><Text>{`import {Autocomplete} from 'wix-style-react/Autocomplete';`}</Text></div>
+        <h2>
+          Component documentation and playground is available <a target="_blank" rel="noopener noreferrer" href="https://wix.github.io/wix-ui-backoffice/?selectedKind=Components&selectedStory=Autocomplete">here</a>.
+        </h2>
+        <CodeExample title="Examples" code={ExampleStandardRaw}>
           <Example options={options}/>
         </CodeExample>
         <br/>

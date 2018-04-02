@@ -35,7 +35,7 @@ class ExampleStandard extends Component {
       children: 'First name'
     },
     autocomplete: {
-      size: 'normal',
+      size: 'medium',
       placeholder: 'Please start typing...',
       options
     }
@@ -114,7 +114,7 @@ class ExampleStandard extends Component {
                 onChange={size => this.setComponentState('autocomplete', {size})}
                 >
                 <RadioGroup.Radio value="small">Small</RadioGroup.Radio>
-                <RadioGroup.Radio value="normal">Normal</RadioGroup.Radio>
+                <RadioGroup.Radio value="medium">Medium</RadioGroup.Radio>
                 <RadioGroup.Radio value="large">Large</RadioGroup.Radio>
               </RadioGroup>
             </div>
