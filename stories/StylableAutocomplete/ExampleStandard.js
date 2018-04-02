@@ -20,8 +20,8 @@ export const Example = ({options}) =>
     <div style={style}>
       Disabled<Autocomplete disabled options={options}/>
     </div>
-    <div style={style} className="ltr">
-      Error<AutoComplete error errorMessage="This is an error message" options={rtlOptions}/>
+    <div style={style}>
+      Error<Autocomplete error="This is an error message" options={options}/>
     </div>
   </div>;
 
