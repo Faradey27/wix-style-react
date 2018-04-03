@@ -12,6 +12,7 @@ Types of changes:
 1. **Security** in case of vulnerabilities.
 1. **Breaking** for breaking changes
 
+## 4.0.0
 
 ## 3.0.1 - 2018-03-28
 ### Fixed
