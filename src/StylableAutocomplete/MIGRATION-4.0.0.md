@@ -97,4 +97,4 @@ To make it easy to use, 2 static functions were added on the `Autocomplete`:
 * `Autocomplete.createOption()` - receives an object with optional properties of: id, value, isDisabled, isSelectable, render
 * `Autocomplete.createDivider()` - receives an optional textual value parameter
 
-A more ellaborate documentation can be found in the [storybook](https://wix.github.io/wix-ui-backoffice/?selectedKind=Components&selectedStory=Autocomplete){:target="_blank"}.
+A more ellaborate documentation can be found in the <a target="_blank" rel="noopener noreferrer" href="https://wix.github.io/wix-ui-backoffice/?selectedKind=Components&selectedStory=Autocomplete">storybook</a>.
