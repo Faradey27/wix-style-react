@@ -1,6 +1,6 @@
 # Migration to the new Autocomplete component
 
-AutoComplete has been renamed to Autocomplete, and the interface is much smaller, and more easy for use.
+AutoComplete has been renamed to Autocomplete, and the interface is much smaller, and more easy to use.\
 The main change is the creation of the Options, which gives you more control of how each Option looks like.
 
 ## Deprecated props
@@ -17,19 +17,19 @@ The main change is the creation of the Options, which gives you more control of 
 
 `valueParser` - Deprecated because the entire `DropdownOption` create has changed, look below for more information.
 
-`dropdownWidth` - Deprecated because styling a component should be done externally.
+`dropdownWidth` - Deprecated because styling the component should be done externally.
 
-`dropdownOffsetLeft` - Deprecated because styling a component should be done externally.
+`dropdownOffsetLeft` - Deprecated because styling the component should be done externally.
 
 `showOptionsIfEmptyInput` - Deprecated because the was not used.
 
-`highlight` - Deprecated because the was not used.
+`highlight` - Deprecated because the was always true.
 
 `dropDirectionUp` - Deprecated because the was not used, the new `Autocomplete` component has a new placement mechanism where the content opens to the direction where there's enough room for it to be displayed.
 
 `onClose` - Deprecated because the usage could be achieved by `onSelect`.
 
-`visible` - Deprecated because styling a component should be done externally.
+`visible` - Deprecated because styling the component should be done externally.
 
 `tabIndex` - Deprecated because should not be used (not best practice).
 
@@ -37,7 +37,7 @@ The main change is the creation of the Options, which gives you more control of 
 
 `onClickOutside` - Deprecated because was not used.
 
-`maxHeightPixels` - Deprecated because styling a component should be done externally.
+`maxHeightPixels` - Deprecated because styling the component should be done externally.
 
 `withArrow` - Deprecated because was not used.
 
@@ -78,14 +78,10 @@ The main change is the creation of the Options, which gives you more control of 
 `error` - Could be textual or boolean. If textual, the error will be displayed in a tooltip.
 
 `prefix` - Element to appear before the `Autocomplete`
-  /** Suffix */
+
 `suffix`  - Element to appear after the `Autocomplete`
 
 ## Testkit Deprecations (e2e & unit)
-
-`isBadge`, `isOfAppearance`, `isOfAlignment` and `isOfShape` are deprecated due to the reasons mentioned before.
-
-Instead of `isBadge` use `exists`.
 
 ## Option creation
 
