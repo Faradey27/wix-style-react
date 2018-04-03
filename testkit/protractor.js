@@ -84,9 +84,6 @@ export const toggleSwitchTestkitFactory = protractorTestkitFactoryCreator(toggle
 import imageViewerDriverFactory from '../src/ImageViewer/ImageViewer.protractor.driver';
 export const imageViewerTestkitFactory = protractorTestkitFactoryCreator(imageViewerDriverFactory);
 
-import textDriverFactory from '../src/Text/Text.protractor.driver';
-export const textTestkitFactory = protractorTestkitFactoryCreator(textDriverFactory);
-
 import tpaTextLinkDriverFactory from '../src/TPA/TextLink/TextLink.protractor.driver';
 export const tpaTextLinkTestkitFactory = protractorTestkitFactoryCreator(tpaTextLinkDriverFactory);
 
@@ -130,5 +127,6 @@ export const tabsTestkitFactory = protractorTestkitFactoryCreator(tabsDriverFact
 
 export {
   badgeTestkitFactory,
-  stylableCounterBadgeDriverFactory as counterBadgeDriverFactory
+  stylableCounterBadgeDriverFactory as counterBadgeDriverFactory,
+  textTestkitFactory
 } from 'wix-ui-backoffice/dist/src/testkit/protractor';

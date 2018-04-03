@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import WixComponent from '../BaseComponents/WixComponent';
 import classNames from 'classnames';
 import Breadcrumbs from '../Breadcrumbs';
-import Text from '../Text';
+import Text from '../Text/deprecated';
 import {Animator} from 'wix-animations';
 import {ArrowLeft} from '../Icons';
 import Button from '../Button';

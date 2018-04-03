@@ -1,4 +1,4 @@
-import {textTestkitFactory, getStoryUrl, waitForVisibilityOf} from '../../testkit/protractor';
+import {textTestkitFactory, getStoryUrl, waitForVisibilityOf} from '../../../testkit/protractor';
 import eyes from 'eyes.it';
 
 describe('Text', () => {
