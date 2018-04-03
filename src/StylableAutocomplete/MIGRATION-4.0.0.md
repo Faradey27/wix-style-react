@@ -83,6 +83,12 @@ The main change is the creation of the Options, which gives you more control of 
 
 ## Testkit Deprecations (e2e & unit)
 
+The drivers has changed tremendously.\
+Better lookup the exact implementation:
+
+* For UT: [Autocomplete.driver.ts](https://github.com/wix/wix-ui/blob/master/packages/wix-ui-core/src/components/Autocomplete/Autocomplete.driver.ts)
+* For E2E: [Autocomplete.protractor.driver.ts](https://github.com/wix/wix-ui/blob/master/packages/wix-ui-core/src/components/Autocomplete/Autocomplete.protractor.driver.ts)
+
 ## Option creation
 
 The options needs to implement a certain interface.\
