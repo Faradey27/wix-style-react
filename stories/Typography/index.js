@@ -19,7 +19,7 @@ storiesOf('1. Foundation', module)
         <ControlledTextExample/>
       </CodeExample>
 
-      <Heading appearance="H1">Typography Examples:</Heading>
+      <Heading>Typography Examples:</Heading>
       <CodeExample title="Text" code={ControlledTextExampleTypographyRaw}>
         <ControlledTextExampleTypography/>
       </CodeExample>

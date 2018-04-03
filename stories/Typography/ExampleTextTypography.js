@@ -6,42 +6,42 @@ import styles from './styles.scss';
 export default () =>
   <div>
     <h3>Text</h3>
-    <ul className={`ltr ${styles.styleList}`}>
-      <li><Text appearance="T1">T1 - Helvetica_45 / 16px / 24px</Text></li>
-      <li><Text appearance="T1.1">T1.1 - Helvetica_45 / 16px / 24px</Text></li>
+    <ul className={`ltr ${styles.root}`}>
+      <li><Text>Helvetica_45 / 16px / 24px</Text></li>
+      <li><Text secondary>secondary - Helvetica_45 / 16px / 24px</Text></li>
       <li className={styles.inverted}>
-        <Text appearance="T1" light>T1 + light - Helvetica_45 / 16px / 24px</Text>
+        <Text light>light - Helvetica_45 / 16px / 24px</Text>
       </li>
-      <li><Text appearance="T1.1" light>T1.1 + light - Helvetica_45 / 16px / 24px</Text></li>
+      <li><Text secondary light>secondary light - Helvetica_45 / 16px / 24px</Text></li>
     </ul>
 
     <h3>Bold Text</h3>
-    <ul className={`ltr ${styles.styleList}`}>
-      <li><Text appearance="T1" bold>T1 + bold - Helvetica_55 / 16px / 24px</Text></li>
-      <li><Text appearance="T1.1" bold>T1.1 + bold - Helvetica_55 / 16px / 24px</Text></li>
+    <ul className={`ltr ${styles.root}`}>
+      <li><Text bold>bold - Helvetica_55 / 16px / 24px</Text></li>
+      <li><Text bold secondary>bold secondary - Helvetica_55 / 16px / 24px</Text></li>
       <li className={styles.inverted}>
-        <Text appearance="T1" bold light>T1 + bold + light - Helvetica_55 / 16px / 24px</Text>
+        <Text bold light>bold light - Helvetica_55 / 16px / 24px</Text>
       </li>
-      <li><Text appearance="T1.1" bold light>T1.1 + bold + light - Helvetica_55 / 16px / 24px</Text></li>
+      <li><Text bold secondary light>bold secondary light - Helvetica_55 / 16px / 24px</Text></li>
     </ul>
 
     <h3>Small Text</h3>
-    <ul className={`ltr ${styles.styleList}`}>
-      <li><Text appearance="T3">T3 - Helvetica_45 / 14px / 18px</Text></li>
-      <li><Text appearance="T3.1">T3.1 - Helvetica_45 / 14px / 18px</Text></li>
+    <ul className={`ltr ${styles.root}`}>
+      <li><Text size="small">small - Helvetica_45 / 14px / 18px</Text></li>
+      <li><Text size="small" secondary>small secondary - Helvetica_45 / 14px / 18px</Text></li>
       <li className={styles.inverted}>
-        <Text appearance="T3" light>T3 + light - Helvetica_45 / 14px / 18px</Text>
+        <Text size="small" light>small light - Helvetica_45 / 14px / 18px</Text>
       </li>
-      <li><Text appearance="T3.1" light>T3.1 + light - Helvetica_45 / 14px / 18px</Text></li>
+      <li><Text size="small" secondary light>small secondary light - Helvetica_45 / 14px / 18px</Text></li>
     </ul>
 
     <h3>Small Bold Text</h3>
-    <ul className={`ltr ${styles.styleList}`}>
-      <li><Text appearance="T3" bold>T3 + bold - Helvetica_55 / 14px / 18px</Text></li>
-      <li><Text appearance="T3.1" bold>T3.1 + bold - Helvetica_55 / 14px / 18px</Text></li>
+    <ul className={`ltr ${styles.root}`}>
+      <li><Text size="small" bold>small bold - Helvetica_55 / 14px / 18px</Text></li>
+      <li><Text size="small" secondary bold>small secondary bold - Helvetica_55 / 14px / 18px</Text></li>
       <li className={styles.inverted}>
-        <Text appearance="T3" bold light>T3 + bold + light - Helvetica_55 / 14px / 18px</Text>
+        <Text size="small" bold light>small + bold + light - Helvetica_55 / 14px / 18px</Text>
       </li>
-      <li><Text appearance="T3.1" bold light>T3.1 + bold - Helvetica_55 / 14px / 18px</Text></li>
+      <li><Text size="small" secondary bold light>small secondary bold light - Helvetica_55 / 14px / 18px</Text></li>
     </ul>
   </div>;
