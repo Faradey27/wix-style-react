@@ -1,11 +1,11 @@
 # Migration to the new Autocomplete component
 
-AutoComplete has been renamed to Autocomplete, and the interface is much smaller, and more easy to use.\
+`AutoComplete` has been renamed to `Autocomplete`, and the interface is much smaller, and more easy to use.\
 The main change is the creation of the Options, which gives you more control of how each Option looks like.
 
 ## Deprecated props
 
-`predicate` - Deprecated because all the usages were the same, and there should be a standard implmentation all over the platform. The predicate is containsIgnoreCase.
+`predicate` - Deprecated because all the usages were the same, and there should be a standard implmentation all over the platform. The predicate is implemented with contains with case insensitivity.
 
 `autocomplete` - Deprecated because never used.
 
@@ -21,11 +21,11 @@ The main change is the creation of the Options, which gives you more control of 
 
 `dropdownOffsetLeft` - Deprecated because styling the component should be done externally.
 
-`showOptionsIfEmptyInput` - Deprecated because the was not used.
+`showOptionsIfEmptyInput` - Deprecated because the value was not used.
 
-`highlight` - Deprecated because the was always true.
+`highlight` - Deprecated because the value was always true.
 
-`dropDirectionUp` - Deprecated because the was not used, the new `Autocomplete` component has a new placement mechanism where the content opens to the direction where there's enough room for it to be displayed.
+`dropDirectionUp` - Deprecated because the value was not used, the new `Autocomplete` component has a new placement mechanism where the content opens to the direction where there's enough room for it to be displayed.
 
 `onClose` - Deprecated because the usage could be achieved by `onSelect`.
 
@@ -51,7 +51,7 @@ The main change is the creation of the Options, which gives you more control of 
 
 ## New props
 
-`options` - Array of the options to display
+`options` - Array of the options to display, this prop is required and has no default value
 
 `onSelect` - Callback to be called when selection changed, with the new selected Option
 
@@ -63,7 +63,7 @@ The main change is the creation of the Options, which gives you more control of 
 
 `onManualInput` - Callback when the user pressed the Enter key or Tab key after he wrote in the Input field - meaning the user selected something not in the list
 
-`autoFocus` - Should the Autocomplete receive focus when rendered
+`autoFocus` - Should the `Autocomplete` receive focus when rendered
 
 `disabled` - Disabled state
 
@@ -84,7 +84,9 @@ The main change is the creation of the Options, which gives you more control of 
 ## Testkit Deprecations (e2e & unit)
 
 The drivers has changed tremendously.\
-Better lookup the exact implementation:
+The testkits name has changed: `autoCompleteTestkitFactory` => `autocompleteTestkitFactory`\
+
+To see the interfaces, use the exact implementation:
 
 * For UT: [Autocomplete.driver.ts](https://github.com/wix/wix-ui/blob/master/packages/wix-ui-core/src/components/Autocomplete/Autocomplete.driver.ts)
 * For E2E: [Autocomplete.protractor.driver.ts](https://github.com/wix/wix-ui/blob/master/packages/wix-ui-core/src/components/Autocomplete/Autocomplete.protractor.driver.ts)
