@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import WixComponent from '../BaseComponents/WixComponent';
-import Languages from '../Icons/dist/components/Languages';
+import GlobeIcon from './GlobeIcon';
 import IconWithOptions from '../IconWithOptions';
 
 export default class LanguagePicker extends WixComponent {
@@ -40,7 +40,7 @@ export default class LanguagePicker extends WixComponent {
 
     return (
       <IconWithOptions {...rest}>
-        <IconWithOptions.Icon><Languages size="18"/></IconWithOptions.Icon>
+        <IconWithOptions.Icon><GlobeIcon/></IconWithOptions.Icon>
         {this.createIconWithOptionsOptions(children)}
       </IconWithOptions>
     );
