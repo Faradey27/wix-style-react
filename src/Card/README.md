@@ -45,6 +45,10 @@ The card is a container component of a rounded corner layout.
 |----------|----------|--------------|------------|-------------|
 | title | string | - | + | The title of the card |
 | subtitle | string | - | - | The subtitle of the card |
-| collapsed | bool | false | - | True when the card should be collapsed |
 | toggleSwitch | 'button' / 'switch' | 'switch' | - | The style of the collapsed card toggle |
 | withoutDivider | bool | false | - | Whether to show divider or not |
+| collapsed | bool | false | - | True when the card should be collapsed |
+| onCollapsedChange| func | - | - | Called with collapse status on change
+| handleToggle<sup> * <sup> | func | - | - | Called on toggle if you want to handle it on your own
+ 
+ \* handleToggle will convert CollapsedHeader to a controlled component if passed, will collapse only on the passed collapsed prop

@@ -1,10 +1,12 @@
-export default function applyPolyfills(window, global) {
+export default function animationPolyfills(window, global) {
   let lastTime = 0;
   const vendors = ['ms', 'moz', 'webkit', 'o'];
 
   for (let x = 0; x < vendors.length && !global.requestAnimationFrame; ++x) {
     global.requestAnimationFrame = global[vendors[x] + 'RequestAnimationFrame'];
-    window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
+    window.cancelAnimationFrame =
+      window[vendors[x] + 'CancelAnimationFrame'] ||
+      window[vendors[x] + 'CancelRequestAnimationFrame'];
   }
 
   if (!global.requestAnimationFrame) {

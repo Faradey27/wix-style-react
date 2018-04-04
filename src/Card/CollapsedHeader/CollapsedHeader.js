@@ -10,7 +10,6 @@ import ArrowDownThin from '../../../src/Icons/dist/components/ArrowDownThin';
 import ArrowUpThin from '../../../src/Icons/dist/components/ArrowUpThin';
 
 class CollapsedHeader extends WixComponent {
-
   static propTypes = {
     title: node.isRequired,
     subtitle: node,
@@ -20,7 +19,8 @@ class CollapsedHeader extends WixComponent {
     collapsed: bool,
     onCollapsedChange: func,
     buttonCollapseText: string,
-    buttonExpandText: string
+    buttonExpandText: string,
+    handleToggle: func
   };
 
   static defaultProps = {
@@ -29,7 +29,8 @@ class CollapsedHeader extends WixComponent {
     toggleStyle: 'switch',
     withoutDivider: false,
     buttonCollapseText: 'Less',
-    buttonExpandText: 'More'
+    buttonExpandText: 'More',
+    isControlled: false
   };
 
   constructor(props) {
@@ -41,7 +42,10 @@ class CollapsedHeader extends WixComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.collapsed !== nextProps.collapsed && nextProps.collapsed !== this.state.isCollapsed) {
+    if (
+      this.props.collapsed !== nextProps.collapsed &&
+      nextProps.collapsed !== this.state.isCollapsed
+    ) {
       this.setState({isCollapsed: nextProps.collapsed});
     }
   }
@@ -57,6 +61,16 @@ class CollapsedHeader extends WixComponent {
     onCollapsedChange && onCollapsedChange(isCollapsed);
   };
 
+  onToggleChange = () => {
+    const {handleToggle} = this.props;
+
+    if (handleToggle) {
+      handleToggle();
+    } else {
+      this.toggleCollapsed();
+    }
+  };
+
   render() {
     const {title, subtitle, withoutDivider, buttonCollapseText, buttonExpandText} = this.props;
 
@@ -68,7 +82,11 @@ class CollapsedHeader extends WixComponent {
 
     const switchElement = (
       <div className={styles.collapsedSwitch} onClick={this.stopPropagation}>
-        <Switch dataHook="switch" onChange={this.toggleCollapsed} checked={!this.state.isCollapsed}/>
+        <Switch
+          dataHook="switch"
+          onChange={this.onToggleChange}
+          checked={!this.state.isCollapsed}
+          />
       </div>
     );
 
@@ -78,7 +96,7 @@ class CollapsedHeader extends WixComponent {
           dataHook="button"
           height="medium"
           prefixIcon={this.state.isCollapsed ? <ArrowDownThin/> : <ArrowUpThin/>}
-          onClick={this.toggleCollapsed}
+          onClick={this.onToggleChange}
           theme="whiteblueprimary"
           type="button"
           >
@@ -103,16 +121,14 @@ class CollapsedHeader extends WixComponent {
 
     return (
       <div>
-        <div className={headerClasses} onClick={this.toggleCollapsed}>
+        <div className={headerClasses} onClick={this.onToggleChange}>
           <div>
             {titleElement}
             {subtitleElement}
           </div>
           {toggleElement}
         </div>
-        <Collapse isOpened={!this.state.isCollapsed}>
-          {this.props.children}
-        </Collapse>
+        <Collapse isOpened={!this.state.isCollapsed}>{this.props.children}</Collapse>
       </div>
     );
   }
