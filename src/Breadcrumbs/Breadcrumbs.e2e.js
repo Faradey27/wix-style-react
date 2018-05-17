@@ -2,7 +2,7 @@ import eyes from 'eyes.it';
 import {breadcrumbsTestkitFactory, getStoryUrl, waitForVisibilityOf} from '../../testkit/protractor';
 
 describe('Breadcrumbs', () => {
-  const storyUrl = getStoryUrl('6. Navigation', '6.2 + Breadcrumbs');
+  const storyUrl = getStoryUrl('6. Navigation', '6.2 Breadcrumbs');
 
   beforeAll(() => {
     browser.get(storyUrl);
@@ -25,7 +25,7 @@ describe('Breadcrumbs', () => {
         expect(driverWithLinks.breadcrumbContentAt(idx)).toBe(item)
       );
     });
-  });
+  }, {version: '1.1.2'});
 
   eyes.it('should show active item once clicked upon', () => {
     const driver = breadcrumbsTestkitFactory({dataHook: 'story-breadcrumbs-active'});
@@ -42,7 +42,7 @@ describe('Breadcrumbs', () => {
       driver.clickBreadcrumbAt(itemToSelect);
       expect(driver.getActiveItemId()).toBe(itemToSelect);
     });
-  });
+  }, {version: '1.1.2'});
 
   it('should call func on item click', () => {
     const driver = breadcrumbsTestkitFactory({dataHook: 'story-breadcrumbs-onclick'});
