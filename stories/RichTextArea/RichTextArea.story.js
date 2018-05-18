@@ -12,6 +12,7 @@ export default {
   component: RichTextArea,
   componentPath: '../../src/RichTextArea',
   componentProps: setProps => ({
+    absoluteLinks: false,
     dataHook: settings.dataHook,
     onChange: value => {
       setProps({value});
