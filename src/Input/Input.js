@@ -238,7 +238,6 @@ class Input extends Component {
 Input.displayName = 'Input';
 
 Input.defaultProps = {
-  size: 'normal',
   theme: 'normal',
   errorMessage: '',
   helpMessage: '',
@@ -354,9 +353,6 @@ Input.propTypes = {
 
   /** Flip the magnify glass image so it be more suitable to rtl */
   rtl: PropTypes.bool,
-
-  /** Specifies the size of the input */
-  size: PropTypes.oneOf(['small', 'normal', 'large']),
 
   /** Component you want to show as the suffix of the input */
   suffix: PropTypes.node,
