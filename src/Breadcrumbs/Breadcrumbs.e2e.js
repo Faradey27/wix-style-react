@@ -42,7 +42,7 @@ describe('Breadcrumbs', () => {
       driver.clickBreadcrumbAt(itemToSelect);
       expect(driver.getActiveItemId()).toBe(itemToSelect);
     });
-  }, {version: '1.1.2'});
+  }, {version: '<Breadcrumbs/> - documentation fixes'});
 
   it('should call func on item click', () => {
     const driver = breadcrumbsTestkitFactory({dataHook: 'story-breadcrumbs-onclick'});
