@@ -20,7 +20,7 @@ const defaultBlock = {
   key: 'defaultBlock'
 };
 
-const makeHrefAbsolute = href => href.indexOf('://') === -1 ? `//${href}` : href;
+const makeHrefAbsolute = href => /^(https?:)?\/\//.test(href) ? href : `//${href}`;
 
 class RichTextArea extends WixComponent {
   static propTypes = {
@@ -39,6 +39,7 @@ class RichTextArea extends WixComponent {
   }
 
   static defaultProps = {
+    absoluteLinks: false,
     errorMessage: '',
     value: '<p></p>'
   }
