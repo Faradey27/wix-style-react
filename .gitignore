@@ -23,3 +23,6 @@ package-lock.json
 !wallaby.js
 !protractor.conf.js
 .DS_Store
+# we also ignore icons folder to avoid comitting icons export
+# icons that appear in root after build
+/icons2/
