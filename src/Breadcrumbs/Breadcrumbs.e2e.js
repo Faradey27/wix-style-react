@@ -25,7 +25,7 @@ describe('Breadcrumbs', () => {
         expect(driverWithLinks.breadcrumbContentAt(idx)).toBe(item)
       );
     });
-  }, {version: '1.1.2'});
+  }, {version: '<Breadcrumbs/> - documentation fixes'});
 
   eyes.it('should show active item once clicked upon', () => {
     const driver = breadcrumbsTestkitFactory({dataHook: 'story-breadcrumbs-active'});
