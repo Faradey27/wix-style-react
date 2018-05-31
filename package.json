@@ -25,7 +25,8 @@
     "postpublish": "npx teamcity-surge-autorelease@^1.0.0 --dist=storybook-static",
     "export-components": "import-path --path src",
     "lint": "yoshi lint",
-    "pr-release": "teamcity-surge-autorelease --dist=storybook-static"
+    "pr-release": "teamcity-surge-autorelease --dist=storybook-static",
+    "migrate-2-new-icons": "jscodeshift  -t scripts/migrate-to-icons-2.js src/AutoCompleteComposite/AutoCompleteComposite.js"
   },
   "yoshi": {
     "features": {
@@ -75,6 +76,7 @@
     "highlight.js": "^9.8.0",
     "identity-obj-proxy": "^3.0.0",
     "import-path": "^1.0.0",
+    "jscodeshift": "^0.5.0",
     "react": "^15.5.4",
     "react-docgen": "^2.15.0",
     "react-dom": "^15.5.4",
