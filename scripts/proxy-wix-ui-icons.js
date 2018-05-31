@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 const MODULE_NAME = 'wix-ui-icons-common';
 const ICONS_DIR = './icons2';
 
@@ -42,6 +42,17 @@ const prepareCommonIconsProxyFiles = moduleName => {
   }, {});
 };
 
+const createIndexFile = (icons, iconsDir) => {
+  const indexFileContent = Object
+    .keys(icons)
+    .reduce((res, iconName) => res + `module.exports.${iconName.replace('.js', '')} = require('./${iconName}').default;\n`, '');
+  fs.writeFileSync(`${iconsDir}/index.js`, indexFileContent);
+};
+
+const copyIconsToSrcForBackcompability = iconsDir => {
+  fs.copySync(iconsDir, `./src/${iconsDir}`);
+};
+
 const createIconsProxyFiles = (moduleName, iconsDir) => {
   const commonIconProxyFileContents = prepareCommonIconsProxyFiles(moduleName);
   const systemProxyFileContents = prepareSystemIconsProxyFiles(moduleName);
@@ -55,6 +66,10 @@ const createIconsProxyFiles = (moduleName, iconsDir) => {
     .forEach(iconName => createFile(iconName, commonIconProxyFileContents[iconName], `${iconsDir}/`));
   Object.keys(systemProxyFileContents)
     .forEach(iconName => createFile(iconName, systemProxyFileContents[iconName], `${iconsDir}/system/`));
+
+  createIndexFile(commonIconProxyFileContents, iconsDir);
+
+  copyIconsToSrcForBackcompability(iconsDir);
 };
 
 createIconsProxyFiles(MODULE_NAME, ICONS_DIR);

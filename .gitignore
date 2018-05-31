@@ -26,3 +26,4 @@ package-lock.json
 # we also ignore icons folder to avoid comitting icons export
 # icons that appear in root after build
 /icons2/
+/src/icons2/
