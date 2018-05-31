@@ -28,6 +28,16 @@ const printDepricationMessage = error => {
   console.log('\n');
 };
 
+const doInternalMigration = (node) => {
+  if (node.value.source.value.includes(`/src/Icons/dist/components/${oldIconName}`) {
+    node.value.source.value = node.value.source.value
+      .replace(`/src/Icons/dist/components/${oldIconName}`, `/icons2/${newIconName}`);
+  } else {
+    node.value.source.value = node.value.source.value
+      .replace(`/Icons/dist/components/${oldIconName}`, `/../icons2/${newIconName}`);
+  }
+}
+
 const transformFile = (file, api) => {
   const j = api.jscodeshift;
   const root = j(file.source);
@@ -49,7 +59,11 @@ const transformFile = (file, api) => {
           where: file.path,
           fullValue: node.value.source.value
         });
-        node.value.source.value = `wix-style-react/icons2/${newIconName}`;
+        if (process.env.MIGRATION_ENV === 'internal') {
+          doInternalMigration(node);
+        } else {
+          node.value.source.value = `wix-style-react/icons2/${newIconName}`;
+        }
       }
     });
 
