@@ -13,7 +13,7 @@
 */
 const oldToNewIconsNamesMap = require('./assets/oldToNewIconsNamesMap.json');
 const oldIconNames = Object.keys(oldToNewIconsNamesMap);
-const getOldIconName = value => oldIconNames.find(iconName => value.includes(iconName));
+const getOldIconName = value => oldIconNames.find(iconName => value.includes(`Icons/dist/components/${iconName}`));
 
 const RED = '\x1b[31m';
 const CYAN = '\x1b[36m';
@@ -33,7 +33,7 @@ const transformFile = (file, api) => {
   const root = j(file.source);
   root
     .find(j.ImportDeclaration)
-    .filter(node => getOldIconName(node.value.source.value) && node.value.source.value.includes('Icons'))
+    .filter(node => getOldIconName(node.value.source.value))
     .forEach(node => {
       const oldIconName = getOldIconName(node.value.source.value);
       const newIconName = oldToNewIconsNamesMap[oldIconName];
