@@ -26,7 +26,7 @@
     "export-components": "import-path --path src",
     "lint": "yoshi lint",
     "pr-release": "teamcity-surge-autorelease --dist=storybook-static",
-    "migrate-2-new-icons": "jscodeshift  -t scripts/migrate-to-icons-2.js src/AutoCompleteComposite/AutoCompleteComposite.js"
+    "migrate-2-new-icons": "jscodeshift  -t scripts/migrate-to-icons-2.js src/SideBar/SideBar.js"
   },
   "yoshi": {
     "features": {
