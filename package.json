@@ -26,7 +26,8 @@
     "export-components": "import-path --path src",
     "lint": "yoshi lint",
     "pr-release": "teamcity-surge-autorelease --dist=storybook-static",
-    "migrate-2-new-icons": "jscodeshift  -t scripts/migrate-to-icons-2.js src/Card/CollapsedHeader/CollapsedHeader.js"
+    "proxy-wix-ui-icons": "node scripts/proxy-wix-ui-icons.js",
+    "migrate-2-new-icons": "jscodeshift  -t scripts/migrate-to-icons-2.js src/DataTable/DataTable.js"
   },
   "yoshi": {
     "features": {

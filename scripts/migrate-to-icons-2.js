@@ -13,7 +13,7 @@
 */
 const oldToNewIconsNamesMap = require('./assets/oldToNewIconsNamesMap.json');
 const oldIconNames = Object.keys(oldToNewIconsNamesMap);
-const getOldIconName = value => oldIconNames.find(iconName => value.includes(`Icons/dist/components/${iconName}`));
+const getOldIconName = value => oldIconNames.find(iconName => value.endsWith(`Icons/dist/components/${iconName}`));
 
 const RED = '\x1b[31m';
 const CYAN = '\x1b[36m';
@@ -28,15 +28,38 @@ const printDepricationMessage = error => {
   console.log('\n');
 };
 
-const doInternalMigration = (node) => {
-  if (node.value.source.value.includes(`/src/Icons/dist/components/${oldIconName}`) {
+const doInternalMigration = (node, oldIconName, newIconName) => {
+  if (node.value.source.value.includes(`/src/Icons/dist/components/${oldIconName}`)) {
     node.value.source.value = node.value.source.value
       .replace(`/src/Icons/dist/components/${oldIconName}`, `/icons2/${newIconName}`);
   } else {
     node.value.source.value = node.value.source.value
       .replace(`/Icons/dist/components/${oldIconName}`, `/../icons2/${newIconName}`);
   }
-}
+};
+
+const doMigration = (node, file) => {
+  const oldIconName = getOldIconName(node.value.source.value);
+  const newIconName = oldToNewIconsNamesMap[oldIconName];
+  if (!newIconName) {
+    errors.push({
+      text: `Icon with name "${oldIconName}" is not supported anymore, please ask your UX person to provide alternative`,
+      where: file.path,
+      fullValue: node.value.source.value
+    });
+  } else {
+    migratedIcons.push({
+      text: `Icon with name "${oldIconName}" was migrated, now it called "${newIconName}"`,
+      where: file.path,
+      fullValue: node.value.source.value
+    });
+    if (process.env.MIGRATION_ENV === 'internal') {
+      doInternalMigration(node, oldIconName, newIconName);
+    } else {
+      node.value.source.value = `wix-style-react/icons2/${newIconName}`;
+    }
+  }
+};
 
 const transformFile = (file, api) => {
   const j = api.jscodeshift;
@@ -44,28 +67,7 @@ const transformFile = (file, api) => {
   root
     .find(j.ImportDeclaration)
     .filter(node => getOldIconName(node.value.source.value))
-    .forEach(node => {
-      const oldIconName = getOldIconName(node.value.source.value);
-      const newIconName = oldToNewIconsNamesMap[oldIconName];
-      if (!newIconName) {
-        errors.push({
-          text: `Icon with name "${oldIconName}" is not supported anymore, please ask your UX person to provide alternative`,
-          where: file.path,
-          fullValue: node.value.source.value
-        });
-      } else {
-        migratedIcons.push({
-          text: `Icon with name "${oldIconName}" was migrated, now it called "${newIconName}"`,
-          where: file.path,
-          fullValue: node.value.source.value
-        });
-        if (process.env.MIGRATION_ENV === 'internal') {
-          doInternalMigration(node);
-        } else {
-          node.value.source.value = `wix-style-react/icons2/${newIconName}`;
-        }
-      }
-    });
+    .forEach(node => doMigration(node, file));
 
   return root.toSource({quote: 'single'});
 };
