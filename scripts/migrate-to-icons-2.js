@@ -59,7 +59,7 @@ const transformFile = (file, api) => {
 module.exports = (file, api) => {
   const result = transformFile(file, api);
 
-  console.log(CYAN, '\n', migratedIcons.length, 'icons was migrated \n');
+  console.log(CYAN, '\n', migratedIcons.length, 'icons was migrated, in file', file.path, '\n');
 
   if (errors.length) {
     console.log(RED, '\n', errors.length, ' icons was not migrated and require your attention: \n');
