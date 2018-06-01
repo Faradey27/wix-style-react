@@ -1,94 +1,99 @@
-const {getOldIconName, getNewIconName, getListOfImportedIcons} = require('./utils');
-
-const transformIconsFromObjectSpread = ({file, node, icons, onError}) => {
-  icons.forEach(icon => {
-    const newIconName = getNewIconName(icon.name);
-    if (newIconName && !newIconName.includes('system/')) {
-      icon.name = newIconName;
-    } else {
-      console.log(icon.name);
-      onError({
-        oldIconName: icon.name,
-        newIconName,
-        where: file.path,
-        fullValue: node.value.source.value
-      });
-    }
-  });
-};
-
-const transformWSRObjectSpread = ({file, node, icons, onError}) => {
-  const objectImportMask = '/Icons';
-  const nodeValue = node.value.source.value;
-  if (nodeValue.includes(`/src${objectImportMask}/dist/index`)) {
-    node.value.source.value = nodeValue.replace(`/src${objectImportMask}/dist/index`, `/icons`);
-  } else if (nodeValue.includes(`/src${objectImportMask}`)) {
-    node.value.source.value = nodeValue.replace(`/src${objectImportMask}`, `/icons`);
-  } else {
-    node.value.source.value = node.value.source.value.replace(objectImportMask, `/../icons`);
-  }
-  transformIconsFromObjectSpread({file, node, icons, onError});
-};
-
-const transformExternalComponentsObjectSpread = ({file, node, icons, onError}) => {
-  node.value.source.value = `wix-style-react/icons`;
-  transformIconsFromObjectSpread({file, node, icons, onError});
-};
+/* eslint-disable operator-linebreak */
+const {renameIdentifier, getOldIconName, getNewIconName, getListOfImportedIcons} = require('./utils');
 
 const transformWSRComponents = ({node, oldIconName, newIconName}) => {
-  const importMask = `/Icons/dist/components/${oldIconName}`;
-  if (node.value.source.value.includes(`/src${importMask}`)) {
-    node.value.source.value = node.value.source.value.replace(`/src${importMask}`, `/icons/${newIconName}`);
-  } else {
-    node.value.source.value = node.value.source.value
-      .replace(importMask, `/../icons/${newIconName}`);
+  const pathes = {
+    commonSrcPath: `/src/Icons/dist/components/${oldIconName}`,
+    commonPath: `/Icons/dist/components/${oldIconName}`,
+    indexSrcPath: `/src/Icons/dist/index`,
+    indexPath: `/Icons/dist/index`,
+    rootSrcPath: `/src/Icons`,
+    rootPath: `/Icons`
+  };
+  const {value} = node.value.source;
+  const isWSRMigration = process.env.MIGRATION === 'wix-style-react';
+
+  if (value.endsWith(pathes.indexSrcPath)) {
+    node.value.source.value = isWSRMigration
+      ? value.replace(pathes.indexSrcPath, '/icons')
+      : 'wix-style-react/icons';
+  } else if (value.endsWith(pathes.indexPath)) {
+    node.value.source.value = isWSRMigration
+      ? value.replace(pathes.indexPath, '/../icons')
+      : 'wix-style-react/icons';
+  } else if (value.endsWith(pathes.rootSrcPath)) {
+    node.value.source.value = isWSRMigration
+      ? value.replace(pathes.rootSrcPath, '/icons')
+      : 'wix-style-react/icons';
+  } else if (value.endsWith(pathes.rootPath)) {
+    node.value.source.value = isWSRMigration
+      ? value.replace(pathes.rootPath, '/../icons')
+      : 'wix-style-react/icons';
+  } else if (value.endsWith(pathes.commonSrcPath)) {
+    node.value.source.value = isWSRMigration
+      ? value.replace(pathes.commonSrcPath, `/icons/${newIconName}`)
+      : `wix-style-react/icons/${newIconName}`;
+  } else if (value.endsWith(pathes.commonPath)) {
+    node.value.source.value = isWSRMigration
+      ? value.replace(pathes.commonPath, `/../icons/${newIconName}`)
+      : `wix-style-react/icons/${newIconName}`;
   }
 };
 
-const transformExternalComponents = ({node, newIconName}) => node.value.source.value = `wix-style-react/icons/${newIconName}`;
+const updateImports = ({root, j, file, onError, onTick}) => {
+  const iconNames = [];
+  const imports = root.find(j.ImportDeclaration);
+  imports
+    .forEach(node => {
+      const iconName = getOldIconName(node);
+      const importedIconNames = (getListOfImportedIcons(node) || []).map(icon => icon.name);
+      if (iconName) {
+        importedIconNames.push(iconName);
+      }
+      importedIconNames.forEach(name => {
+        const newIconName = getNewIconName(name);
+        const logObj = {
+          newIconName,
+          oldIconName: name,
+          where: file.path,
+          fullValue: node.value.source.value
+        };
+        if (newIconName) {
+          onTick(logObj);
+        } else {
+          onError(logObj);
+        }
+      });
+      if (importedIconNames.length) {
+        const newIconName = getNewIconName(iconName);
+        iconNames.push(...importedIconNames);
+        transformWSRComponents({node, newIconName, oldIconName: iconName});
+      }
+    });
 
-const changeGeneralImportsInFile = ({node, file, onError, onTick}) => {
-  const oldIconName = getOldIconName(node);
-  const newIconName = getNewIconName(oldIconName);
-  console.log(node.value.source.value);
-  if (!newIconName) {
-    onError({oldIconName, newIconName, where: file.path, fullValue: node.value.source.value});
-  } else {
-    if (process.env.MIGRATION === 'wix-style-react') {
-      transformWSRComponents({node, oldIconName, newIconName});
-    } else {
-      transformExternalComponents({node, newIconName});
-    }
-    onTick({oldIconName, newIconName, where: file.path, fullValue: node.value.source.value});
-  }
+  return iconNames;
 };
 
-const changeSpreadImportsInFile = ({node, file, onError, onTick}) => {
-  const icons = getListOfImportedIcons(node);
-  const oldIconsCache = icons.map(icon => icon.name).join(',');
-  if (process.env.MIGRATION === 'wix-style-react') {
-    transformWSRObjectSpread({file, node, icons, onError});
-  } else {
-    transformExternalComponentsObjectSpread({file, node, icons, onError});
-  }
-  onTick({
-    oldIconName: oldIconsCache,
-    newIconName: icons.map(icon => getNewIconName(icon.name)).join(','),
-    where: file.path,
-    fullValue: node.value.source.value
+const updateIdentifiers = ({root, j, iconNames}) => {
+  console.log(iconNames);
+  iconNames.forEach(name => {
+    root
+      .find(j.Identifier, {name})
+      .paths()
+      .forEach(path => {
+        const newIconName = getNewIconName(name);
+        if (newIconName) {
+          renameIdentifier(path, newIconName.replace('system/', ''), j);
+        }
+      });
   });
 };
 
 /* import SomeIcon from './Icons/dist/components/SomIcon' to 'import SomeNewIcon from ./icons/SomeIcon'  */
-module.exports.transformImports = ({file, api, onError, onTick}) => {
+module.exports.transformFile = ({file, api, onError, onTick}) => {
   const j = api.jscodeshift;
   const root = j(file.source);
-  const imports = root.find(j.ImportDeclaration);
-  imports
-    .filter(node => getOldIconName(node))
-    .forEach(node => changeGeneralImportsInFile({node, file, onError, onTick}));
-  imports
-    .filter(node => getListOfImportedIcons(node))
-    .forEach(node => changeSpreadImportsInFile({node, file, onError, onTick}));
+  const iconNames = updateImports({root, j, file, onTick, onError});
+  updateIdentifiers({root, j, iconNames});
   return root;
 };

@@ -1,4 +1,4 @@
-const {transformImports} = require('./transforms');
+const {transformFile} = require('./transforms');
 
 const RED = '\x1b[31m';
 const CYAN = '\x1b[36m';
@@ -29,7 +29,7 @@ const onTick = ({oldIconName, newIconName, where, fullValue}) => {
 };
 
 module.exports = (file, api) => {
-  const result = transformImports({file, api, onError, onTick});
+  const result = transformFile({file, api, onError, onTick});
 
   console.log(CYAN, '\n', migratedIcons.length, 'icons was migrated, in file', file.path, '\n');
 

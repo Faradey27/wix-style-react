@@ -15,7 +15,7 @@ const oldToNewIconsNamesMap = require('./assets/oldToNewIconsNamesMap.json');
 const oldIconNames = Object.keys(oldToNewIconsNamesMap);
 
 module.exports.getOldIconName = node => oldIconNames.find(
-  iconName => node.value.source.value.endsWith(`Icons/dist/components/${iconName}`)
+  iconName => node.value.source && node.value.source.value.endsWith(`Icons/dist/components/${iconName}`)
 );
 
 module.exports.getListOfImportedIcons = node => {
@@ -32,3 +32,5 @@ module.exports.getListOfImportedIcons = node => {
 };
 
 module.exports.getNewIconName = oldIconName => oldToNewIconsNamesMap[oldIconName];
+
+module.exports.renameIdentifier = (path, newName, j) => j(path).replaceWith(() => j.identifier(newName));
