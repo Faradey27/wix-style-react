@@ -75,7 +75,6 @@ const updateImports = ({root, j, file, onError, onTick}) => {
 };
 
 const updateIdentifiers = ({root, j, iconNames}) => {
-  console.log(iconNames);
   iconNames.forEach(name => {
     root
       .find(j.Identifier, {name})
@@ -97,3 +96,5 @@ module.exports.transformFile = ({file, api, onError, onTick}) => {
   updateIdentifiers({root, j, iconNames});
   return root;
 };
+
+// TODO handle wix-style-react/Icons -> wix-style-react/icons
