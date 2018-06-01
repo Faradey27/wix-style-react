@@ -27,7 +27,7 @@
     "lint": "yoshi lint",
     "pr-release": "teamcity-surge-autorelease --dist=storybook-static",
     "proxy-wix-ui-icons": "node scripts/proxy-wix-ui-icons.js",
-    "migrate-2-new-icons": "jscodeshift  -t scripts/migrate-to-icons-2.js src/DataTable/DataTable.js"
+    "migrate-to-icons-v2": "jscodeshift  -t scripts/migrate-to-icons-v2 src/DataTable/DataTable.js"
   },
   "yoshi": {
     "features": {
