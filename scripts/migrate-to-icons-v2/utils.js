@@ -21,9 +21,21 @@ module.exports.getOldIconName = node => oldIconNames.find(
 module.exports.getListOfImportedIcons = node => {
   if (node.value.source.value.endsWith('/Icons') || node.value.source.value.endsWith('/Icons/dist/index')) {
     const icons = [];
-    node.node.specifiers.forEach(item => {
+    node.node.specifiers.forEach((item, index) => {
       if (item.imported && item.imported.name) {
-        icons.push(item.imported);
+        if (item.imported && item.imported.name) {
+          icons.push({
+            value: item.imported.name
+          });
+        }
+      } else if (index === node.node.specifiers.length - 1) {
+        if (item.local.name) {
+          // edge case, when import * as Icons from 'wsr/Icons'
+          icons.push({
+            type: 'all',
+            value: item.local.name
+          });
+        }
       }
     });
     return icons;

@@ -46,28 +46,52 @@ const updateImports = ({root, j, file, onError, onTick}) => {
   imports
     .forEach(node => {
       const iconName = getOldIconName(node);
-      const importedIconNames = (getListOfImportedIcons(node) || []).map(icon => icon.name);
+      const importedIconNames = (getListOfImportedIcons(node) || []);
       if (iconName) {
-        importedIconNames.push(iconName);
+        importedIconNames.push({value: iconName});
       }
-      importedIconNames.forEach(name => {
-        const newIconName = getNewIconName(name);
-        const logObj = {
-          newIconName,
-          oldIconName: name,
-          where: file.path,
-          fullValue: node.value.source.value
-        };
-        if (newIconName) {
-          onTick(logObj);
-        } else {
-          onError(logObj);
-        }
-      });
-      if (importedIconNames.length) {
+      if (importedIconNames[0] && importedIconNames[0].type !== 'all') {
+        importedIconNames.map(icon => icon.value).forEach(name => {
+          const newIconName = getNewIconName(name);
+          const logObj = {
+            newIconName,
+            oldIconName: name,
+            where: file.path,
+            fullValue: node.value.source.value
+          };
+          if (newIconName) {
+            onTick(logObj);
+          } else {
+            onError(logObj);
+          }
+        });
+      }
+      if (importedIconNames[0] && importedIconNames[0].type !== 'all' && importedIconNames.length) {
         const newIconName = getNewIconName(iconName);
-        iconNames.push(...importedIconNames);
+        iconNames.push(...importedIconNames.map(icon => icon.value));
         transformWSRComponents({node, newIconName, oldIconName: iconName});
+      } else if (importedIconNames[0] && importedIconNames[0].type === 'all') {
+        transformWSRComponents({node});
+        root.find(j.JSXMemberExpression, {object: {name: importedIconNames[0].value}})
+          .forEach(node => {
+            if (!node.value.property) {
+              return null;
+            }
+            const oldIconName = node.value.property.name;
+            const newIconName = getNewIconName(oldIconName);
+            const logObj = {
+              newIconName,
+              oldIconName,
+              where: file.path,
+              fullValue: ''
+            };
+            if (newIconName) {
+              node.value.property.name = newIconName;
+              onTick(logObj);
+            } else {
+              onError(logObj);
+            }
+          });
       }
     });
 
