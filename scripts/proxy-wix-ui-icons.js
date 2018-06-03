@@ -45,8 +45,13 @@ const prepareCommonIconsProxyFiles = moduleName => {
 const createIndexFile = (icons, iconsDir) => {
   const indexFileContent = Object
     .keys(icons)
-    .reduce((res, iconName) => res + `module.exports.${iconName.replace('.js', '')} = require('./${iconName}').default;\n`, '');
-  fs.writeFileSync(`${iconsDir}/index.js`, indexFileContent);
+    .reduce((res, iconName) => {
+      const name = iconName.replace('.js', '');
+      const exportFunc = `Object.defineProperty(exports, '${name}', {enumerable: true, get: function get() { return _interopRequireDefault(_${name}).default;}});\n`;
+      return res + `var _${name} = require('./${iconName}');\n` + exportFunc;
+    }, '');
+  const content = `Object.defineProperty(exports, '__esModule', {value: true});\n${indexFileContent}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : {default: obj};}`;
+  fs.writeFileSync(`${iconsDir}/index.js`, content);
 };
 
 const copyIconsToSrcForBackcompability = iconsDir => {
