@@ -78,4 +78,16 @@ open localhost:6006
   * Support `exists()` method also when the result should be false. for example, syntax like `element.childNodes[0]` should be more safe: `if (element) { element.childNodes[0] }...`
 
 
-  
+
+## Adding new icon
+
+* check github issues(inside [wix-style-react](https://github.com/wix/wix-style-react) repo) if no one else is working on same icon
+* check github issues(inside [wix-ui](https://github.com/wix/wix-ui)) if no one else is working on same icon
+* design according to [Zeplin](https://app.zeplin.io/project/5864e02695b5754a69f56150) design created by UX guild.
+* receive approve about new icon from UX guild([wuwa](https://github.com/wuwa) or [milkyfruit](https://github.com/milkyfruit))
+* go to [wix-ui](https://github.com/wix/wix-ui) repo to [wix-ui-icons-common](https://github.com/wix/wix-ui/tree/master/packages/wix-ui-icons-common) package
+* decide together with UX guild is it `system` or `common` icon
+* add your icon to correct package folder inside [wix-ui-icons-common](https://github.com/wix/wix-ui/tree/master/packages/wix-ui-icons-common)
+* create pull request for [wix-ui](https://github.com/wix/wix-ui) with your new icon
+* after merging your pull request inside [wix-ui](https://github.com/wix/wix-ui), your new icon will automatically appear inside [wix-style-react](https://github.com/wix/wix-style-react) with next wix-style-react release(wix-style-react has automation script, which take all icons from [wix-ui-icons-common](https://github.com/wix/wix-ui/tree/master/packages/wix-ui-icons-common) and proxy them inside [wix-style-react](https://github.com/wix/wix-style-react))
+* your icon will be available in wix-style-react with such syntax `import MyAwesomeIcon from 'wix-style-react/icons/MyAwesomeIcon'` or `import MyAwesomeIcon from 'wix-style-react/icons/system/MyAwesomeIcon'`
