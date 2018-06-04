@@ -12,31 +12,32 @@ const transformWSRComponents = ({node, oldIconName, newIconName}) => {
   };
   const {value} = node.value.source;
   const isWSRMigration = process.env.MIGRATION === 'wix-style-react';
+  const ICONS_FOLDER = 'new-icons';
 
   if (value.endsWith(pathes.indexSrcPath)) {
     node.value.source.value = isWSRMigration
-      ? value.replace(pathes.indexSrcPath, '/icons')
-      : 'wix-style-react/icons';
+      ? value.replace(pathes.indexSrcPath, `/${ICONS_FOLDER}`)
+      : `wix-style-react/${ICONS_FOLDER}`;
   } else if (value.endsWith(pathes.indexPath)) {
     node.value.source.value = isWSRMigration
-      ? value.replace(pathes.indexPath, '/../icons')
-      : 'wix-style-react/icons';
+      ? value.replace(pathes.indexPath, `/../${ICONS_FOLDER}`)
+      : `wix-style-react/${ICONS_FOLDER}`;
   } else if (value.endsWith(pathes.rootSrcPath)) {
     node.value.source.value = isWSRMigration
-      ? value.replace(pathes.rootSrcPath, '/icons')
-      : 'wix-style-react/icons';
+      ? value.replace(pathes.rootSrcPath, `/${ICONS_FOLDER}`)
+      : `wix-style-react/${ICONS_FOLDER}`;
   } else if (value.endsWith(pathes.rootPath)) {
     node.value.source.value = isWSRMigration
-      ? value.replace(pathes.rootPath, '/../icons')
-      : 'wix-style-react/icons';
+      ? value.replace(pathes.rootPath, `/../${ICONS_FOLDER}`)
+      : `wix-style-react/${ICONS_FOLDER}`;
   } else if (value.endsWith(pathes.commonSrcPath)) {
     node.value.source.value = isWSRMigration
-      ? value.replace(pathes.commonSrcPath, `/icons/${newIconName}`)
-      : `wix-style-react/icons/${newIconName}`;
+      ? value.replace(pathes.commonSrcPath, `/${ICONS_FOLDER}/${newIconName}`)
+      : `wix-style-react/${ICONS_FOLDER}/${newIconName}`;
   } else if (value.endsWith(pathes.commonPath)) {
     node.value.source.value = isWSRMigration
-      ? value.replace(pathes.commonPath, `/../icons/${newIconName}`)
-      : `wix-style-react/icons/${newIconName}`;
+      ? value.replace(pathes.commonPath, `/../${ICONS_FOLDER}/${newIconName}`)
+      : `wix-style-react/${ICONS_FOLDER}/${newIconName}`;
   }
 };
 

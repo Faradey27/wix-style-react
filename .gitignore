@@ -25,6 +25,6 @@ package-lock.json
 .DS_Store
 # we also ignore icons folder to avoid comitting icons export
 # icons that appear in root after build
-/icons/
-/src/icons/system
-/src/icons/*.js
+/new-icons/
+/src/new-icons/system
+/src/new-icons/*.js

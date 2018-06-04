@@ -1,6 +1,6 @@
 const fs = require('fs-extra');
 const MODULE_NAME = 'wix-ui-icons-common';
-const ICONS_DIR = './icons';
+const ICONS_DIR = './new-icons';
 
 const getListOfFilesInFolder = dirname => fs.readdirSync(dirname);
 
