@@ -36,7 +36,7 @@ Now you have two choices:
 1) Do migration by hands based on mapping
 2) run our migration script
 ```
-  npx wix-style-react --name=migrate-2-new-icons --path=src/
+  migrate-to-icons-v2 --path=src/
 ```
 such command will migrate all .js files inside src/ folder to new icons
 
