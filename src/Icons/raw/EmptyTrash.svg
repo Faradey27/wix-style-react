@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="15px" viewBox="0 0 13 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Batch-Actions-/-Empty-Trash" transform="translate(-86.000000, -2.000000)" fill="#3899EC">
+            <g id="Empty-trash" transform="translate(86.000000, 2.000000)">
+                <path d="M11,12 C11,13.104 10.104,14 9,14 L4,14 C2.896,14 2,13.104 2,12 L2,3 L4,3 L9,3 L11,3 L11,12 Z M5,1.5 C5,1.229 5.24,1 5.525,1 L7.392,1 C7.693,1 8,1.252 8,1.5 L8,2 L5,2 L5,1.5 Z M9,2 L9,1.5 C9,0.701 8.248,0 7.392,0 L5.525,0 C4.684,0 4,0.673 4,1.5 L4,2 L0,2 L0,3 L1,3 L1,12 C1,13.657 2.343,15 4,15 L9,15 C10.657,15 12,13.657 12,12 L12,3 L13,3 L13,2 L9,2 Z" id="Page-1"></path>
+                <path d="M6.50201487,9.21227085 L9.26153587,11.9717919 L9.97179185,11.2615359 L7.21227085,8.50201487 L10,5.71428571 L9.28571429,5 L6.49798513,7.78772915 L3.71025598,5 L3,5.71025598 L5.78772915,8.49798513 L3,11.2857143 L3.71428571,12 L6.50201487,9.21227085 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
