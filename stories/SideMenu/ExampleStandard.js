@@ -6,10 +6,10 @@ import {
 } from 'wix-style-react';
 
 import {
-  Help as HelpIcon,
+  InfoCircle as HelpIcon,
   Chat as ChatIcon,
-  Trash3 as TrashIcon
-} from 'wix-style-react/Icons';
+  Delete as TrashIcon
+} from 'wix-style-react/new-icons';
 
 export default () =>
   <div style={{width: 220, height: 700}}>

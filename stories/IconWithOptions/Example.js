@@ -1,6 +1,6 @@
 import React from 'react';
 import IconWithOptions from 'wix-style-react/IconWithOptions';
-import {Image} from 'wix-style-react/Icons';
+import {Image} from 'wix-style-react/new-icons';
 
 const style = {
   display: 'inline-block',

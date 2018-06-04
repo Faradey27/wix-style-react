@@ -5,7 +5,7 @@ import omit from 'lodash/omit';
 import WixComponent from '../BaseComponents/WixComponent';
 import DropdownLayout from '../DropdownLayout/DropdownLayout';
 import Button from '../Button';
-import ArrowDownThin from '../Icons/dist/components/ArrowDownThin';
+import ChevronDown from '../../new-icons/ChevronDown';
 
 /**
  * A simple dropdown with button trigger
@@ -61,7 +61,7 @@ class ButtonWithOptions extends WixComponent {
     return [
       this.cleanOptionToSimpleTextForm(selectedOption.props.children),
       <span key={1} style={{marginLeft: '10px'}}>
-        <ArrowDownThin size="10px"/>
+        <ChevronDown size="10px"/>
       </span>
     ];
   }

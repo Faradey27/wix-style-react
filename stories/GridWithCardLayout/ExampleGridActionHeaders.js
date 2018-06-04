@@ -5,7 +5,7 @@ import styles from './ExampleGrid.scss';
 import TextField from '../../src/TextField';
 import Input from '../../src/Input';
 import Label from '../../src/Label';
-import {Plus, ArrowDownThin} from 'wix-style-react/Icons';
+import {Add, ChevronDown} from 'wix-style-react/new-icons';
 import Tooltip from '../../src/Tooltip';
 
 function renderStandardInput() {
@@ -67,7 +67,7 @@ export default () =>
                 <Card.ButtonHeader
                   title="Card header" buttonOnClick={() => {
                     alert('Clicked!');
-                  }} buttonPrefix={<Plus/>} buttonTitle="Click Me!"
+                  }} buttonPrefix={<Add/>} buttonTitle="Click Me!"
                                             />
                 <Card.Content>
                   <Row>
@@ -83,7 +83,7 @@ export default () =>
                 <Card.ButtonHeader
                   title="Card header" buttonOnClick={() => {
                     alert('Clicked!');
-                  }} theme="fullblue" buttonSuffix={<ArrowDownThin/>} buttonTitle="Click Me!"
+                  }} theme="fullblue" buttonSuffix={<ChevronDown/>} buttonTitle="Click Me!"
                                                                       />
                 <Card.Content>
                   <Row>
@@ -121,7 +121,7 @@ export default () =>
               <Card.ButtonHeader
                 withoutDivider title="Header" subtitle="No divider" buttonOnClick={() => {
                   alert('Clicked!');
-                }} theme="fullblue" buttonPrefix={<ArrowDownThin/>} buttonTitle="Click Me!"
+                }} theme="fullblue" buttonPrefix={<ChevronDown/>} buttonTitle="Click Me!"
                                                                     />
               <Card.Content>
                 <Row>
@@ -146,7 +146,7 @@ export default () =>
               buttonOnClick={() => {
                 alert('Clicked!');
               }}
-              buttonPrefix={<Plus/>}
+              buttonPrefix={<Add/>}
               buttonTitle="Tooltip button!"
               />
           </Card>
@@ -156,7 +156,7 @@ export default () =>
             <Card.ButtonHeader
               withoutDivider title="Card header no content" subtitle="No divider" buttonOnClick={() => {
                 alert('Clicked!');
-              }} buttonPrefix={<ArrowDownThin/>} buttonTitle="Click Me!"
+              }} buttonPrefix={<ChevronDown/>} buttonTitle="Click Me!"
                                                  />
           </Card>
         </Col>

@@ -6,10 +6,10 @@ import {
   Tooltip
 } from 'wix-style-react';
 import {
-  Help as HelpIcon,
+  InfoCircle as HelpIcon,
   Chat as ChatIcon,
-  Trash3 as TrashIcon
-} from 'wix-style-react/Icons';
+  Delete as TrashIcon
+} from 'wix-style-react/new-icons';
 let counter = 3;
 
 const items = [

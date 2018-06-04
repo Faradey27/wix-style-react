@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import WixComponent from '../BaseComponents/WixComponent';
 import Text from '../Deprecated/Text';
 import Button from '../Button';
-import CloseIcon from '../Icons/dist/components/Close';
+import CloseIcon from '../../new-icons/X';
 
 import styles from './styles.scss';
 
