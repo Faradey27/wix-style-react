@@ -81,12 +81,9 @@ open localhost:6006
 
 ## Adding new icon
 
-* check github issues(inside [wix-style-react](https://github.com/wix/wix-style-react) repo) if no one else is working on same icon
-* check github issues(inside [wix-ui](https://github.com/wix/wix-ui)) if no one else is working on same icon
-* design according to [Zeplin](https://app.zeplin.io/project/5864e02695b5754a69f56150) design created by UX guild.
-* receive approve about new icon from UX guild([wuwa](https://github.com/wuwa) or [milkyfruit](https://github.com/milkyfruit))
+* receive the approval for the new icon from one of the library's UXs [wuwa](https://github.com/wuwa) or [milkyfruit](https://github.com/milkyfruit)
 * go to [wix-ui](https://github.com/wix/wix-ui) repo to [wix-ui-icons-common](https://github.com/wix/wix-ui/tree/master/packages/wix-ui-icons-common) package
-* decide together with UX guild is it `system` or `common` icon
+* add it to the system icons folder if it's an icon used internally inside a wix-style-react component, or to the general in case it is an icon to be used inside an app
 * add your icon to correct package folder inside [wix-ui-icons-common](https://github.com/wix/wix-ui/tree/master/packages/wix-ui-icons-common)
 * create pull request for [wix-ui](https://github.com/wix/wix-ui) with your new icon
 * after merging your pull request inside [wix-ui](https://github.com/wix/wix-ui), your new icon will automatically appear inside [wix-style-react](https://github.com/wix/wix-style-react) with next wix-style-react release(wix-style-react has automation script, which take all icons from [wix-ui-icons-common](https://github.com/wix/wix-ui/tree/master/packages/wix-ui-icons-common) and proxy them inside [wix-style-react](https://github.com/wix/wix-style-react))

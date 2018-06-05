@@ -1,3 +1,19 @@
+# How to migrate to new icons
+
+First of all, some names are changed and some icons are deprecated, so please visit http://electric-process.surge.sh/ and find new icon name, if your icon is deprecated - ask your UX/UI person to provide alternative from available icons.
+
+Now you have two choices:
+1) Do migration by hands based on mapping
+2) run our migration script
+```
+  migrate-to-icons-v2
+```
+such command will migrate all .js files inside src/ folder to new icons,
+if you want to migrate icons in different folder, you can use --path param
+```
+  migrate-to-icons-v2 --path stories/
+```
+
 # Motivation
 
 * current icons do not have standart sizes
@@ -27,16 +43,4 @@ Example 2
     </div>
   )
 ```
-
-# How to migrate to new icons
-
-First of all, some names are changed and some icons are deprecated, so please visit http://electric-process.surge.sh/ and find new icon name, if your icon is deprecated - ask your UX/UI person to provide alternative from available icons.
-
-Now you have two choices:
-1) Do migration by hands based on mapping
-2) run our migration script
-```
-  migrate-to-icons-v2 --path=src/
-```
-such command will migrate all .js files inside src/ folder to new icons
 
