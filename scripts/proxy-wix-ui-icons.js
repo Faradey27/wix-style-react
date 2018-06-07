@@ -50,7 +50,7 @@ const createIndexFile = (icons, iconsDir) => {
       const exportFunc = `Object.defineProperty(exports, '${name}', {enumerable: true, get: function get() { return _interopRequireDefault(_${name}).default;}});\n`;
       return res + `var _${name} = require('./${iconName}');\n` + exportFunc;
     }, '');
-  const content = `Object.defineProperty(exports, '__esModule', {value: true});\n${indexFileContent}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : {default: obj};}`;
+  const content = `/*eslint-disable*/Object.defineProperty(exports, '__esModule', {value: true});\n${indexFileContent}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : {default: obj};}`;
   fs.writeFileSync(`${iconsDir}/index.js`, content);
 };
 
