@@ -424,6 +424,9 @@ $material-gap: 8px;
   text-align: center;
 
   background-color: $B50;
+
+  display: flex;
+  align-items: center;
   cursor: pointer;
 
   path { stroke: $B10; }
@@ -460,6 +463,7 @@ $material-gap: 8px;
 }
 
 .menu-arrow {
+  display: flex; /* required to center icon vertically inside of the input */
   padding: 0 $double-gap;
   path { fill: $B10; }
 

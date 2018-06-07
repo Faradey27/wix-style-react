@@ -61,7 +61,7 @@ class EditableRow extends WixComponent {
             theme="dark"
             >
             <Button onClick={() => this.onCancel()} height="medium" theme="icon-standardsecondary" dataHook="edit-row-cancel-button">
-              <X size="12px"/>
+              <X/>
             </Button>
           </Tooltip>
 
@@ -71,7 +71,7 @@ class EditableRow extends WixComponent {
             theme="dark"
             >
             <Button onClick={() => this.onApprove()} height="medium" theme="icon-standard" disabled={this.state.newOption.length === 0} dataHook="edit-row-approve-button">
-              <Check size="12px"/>
+              <Check/>
             </Button>
           </Tooltip>
         </div>

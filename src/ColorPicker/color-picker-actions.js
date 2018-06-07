@@ -10,10 +10,10 @@ import css from './color-picker-actions.scss';
 const ColorPickerActions = ({onCancel, onConfirm}) =>
   <div className={css.root}>
     <Button height="small" theme="icon-standardsecondary" onClick={onCancel}>
-      <X size="12px"/>
+      <X/>
     </Button>
     <Button height="small" theme="icon-standard" onClick={onConfirm}>
-      <Check size="12px"/>
+      <Check/>
     </Button>
   </div>;
 

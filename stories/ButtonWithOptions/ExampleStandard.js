@@ -31,7 +31,7 @@ export default () =>
           height="medium"
           theme="icon-standard"
           >
-          <X size="12px"/>
+          <X/>
         </ButtonWithOptions.Button>
         {optionsArray}
       </ButtonWithOptions>

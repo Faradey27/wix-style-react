@@ -45,14 +45,14 @@ const InputSuffix = ({theme, errorMessage, error, disabled, help, helpMessage, o
     {
       component: () =>
         <div className={styles.magnifyingGlass} disabled={disabled} onClick={onIconClicked}>
-          <Search size={'18px'}/>
+          <Search/>
         </div>,
       isVisible: suffixRules.magnifyingGlass({magnifyingGlass, isClearButtonVisible, error})
     },
     {
       component: () =>
         <div onClick={onClear} className={styles.clearButton} data-hook="input-clear-button">
-          <X size="8px"/>
+          <X/>
         </div>,
       isVisible: suffixRules.clearButton({isClearButtonVisible})
     },
@@ -71,7 +71,7 @@ const InputSuffix = ({theme, errorMessage, error, disabled, help, helpMessage, o
     {
       component: () =>
         <div className={styles.menuArrow} disabled={disabled} onClick={onIconClicked}>
-          <ChevronDown size={'0.6em'}/>
+          <ChevronDown/>
         </div>,
       isVisible: suffixRules.menuArrow({menuArrow, isClearButtonVisible, magnifyingGlass})
     }

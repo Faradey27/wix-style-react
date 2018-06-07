@@ -106,7 +106,7 @@ class EditableSelector extends WixComponent {
                 />
               <div className={styles.optionMenu}>
                 <ButtonWithOptions.Button onClick={() => this.deleteItem(index)} dataHook="delete-item" type="button" height="small" theme="icon-greybackground">
-                  <Delete size="15px"/>
+                  <Delete />
                 </ButtonWithOptions.Button>
                 <ButtonWithOptions.Button onClick={() => this.editItem(index)} dataHook="edit-item" height="small" theme="fullblue">
                   {editButtonText}
@@ -118,8 +118,10 @@ class EditableSelector extends WixComponent {
         {this.state.addingNewRow && this.renderInput()}
         <div className={styles.newRowButton} onClick={() => this.addNewRow()} data-hook="new-row-button">
           <Text appearance="T1.3">
-            <Add size="13px"/>
-            <span data-hook="new-row-button-text" className={styles.text}>{newRowLabel}</span>
+            <span className={styles.newRowText}>
+              <Add/>
+              <span data-hook="new-row-button-text" className={styles.text}>{newRowLabel}</span>
+            </span>
           </Text>
         </div>
       </div>

@@ -103,7 +103,7 @@ class PopoverMenu extends WixComponent {
           height={buttonHeight}
           theme={buttonTheme}
           >
-          <More size="12px"/>
+          <More/>
         </Button>
       </Tooltip>
     );

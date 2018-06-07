@@ -41,7 +41,7 @@ class Example extends React.Component {
   render() {
     return (
       <IconWithOptions dataHook="story-iconWithOptions" onSelect={this.onSelect} selectedId={this.state.selectedId}>
-        <IconWithOptions.Icon><Image size="30"/></IconWithOptions.Icon>
+        <IconWithOptions.Icon><Image/></IconWithOptions.Icon>
         {optionsToArray(options)}
       </IconWithOptions>
     );

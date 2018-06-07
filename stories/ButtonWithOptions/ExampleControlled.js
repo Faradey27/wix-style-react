@@ -59,7 +59,7 @@ class ControlledInputWithOptions extends React.Component {
           height="medium"
           theme="icon-standard"
           >
-          <X size="12px"/>
+          <X/>
         </ButtonWithOptions.Button>
         {createOptions(options.filter(predicate))}
       </ButtonWithOptions>

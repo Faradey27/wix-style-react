@@ -31,7 +31,7 @@ class SectionHelper extends WixComponent {
               size="large"
               theme="close-dark"
               onClick={this.props.onClose}
-              children={<CloseIcon size="8px"/>}
+              children={<CloseIcon/>}
               />
           </div>
         }

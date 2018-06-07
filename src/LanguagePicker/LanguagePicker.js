@@ -40,7 +40,7 @@ export default class LanguagePicker extends WixComponent {
 
     return (
       <IconWithOptions {...rest}>
-        <IconWithOptions.Icon><Languages size="18"/></IconWithOptions.Icon>
+        <IconWithOptions.Icon><Languages/></IconWithOptions.Icon>
         {this.createIconWithOptionsOptions(children)}
       </IconWithOptions>
     );

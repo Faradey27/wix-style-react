@@ -16,7 +16,7 @@ class FieldLabelAttributes extends WixComponent {
       data-hook="info"
       className={styles.icon}
       >
-      <InfoCircle size="18px"/>
+      <InfoCircle/>
     </span>;
 
 

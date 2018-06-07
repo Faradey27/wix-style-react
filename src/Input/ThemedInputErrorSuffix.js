@@ -33,7 +33,7 @@ const AmaterialErrorSuffix = ({focused, error, errorMessage, placement, onShow})
     textAlign="left"
     onShow={onShow}
     >
-    <div className={classNames(styles.errorIcon, styles.suffix)}><StatusAlert size="1.5em"/></div>
+    <div className={classNames(styles.errorIcon, styles.suffix)}><StatusAlert/></div>
   </Tooltip>;
 
 AmaterialErrorSuffix.propTypes = {

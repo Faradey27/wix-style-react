@@ -14,7 +14,7 @@ export default {
 
   componentProps: {
     theme: 'close-standard',
-    children: <Icons.X size="6px"/>
+    children: <Icons.X/>
   },
 
   exampleProps: {

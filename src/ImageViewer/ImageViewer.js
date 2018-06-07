@@ -51,7 +51,7 @@ class ImageViewer extends WixComponent {
               </Tooltip>
               <Tooltip content="Remove" {...tooltipCommonProps}>
                 <Button dataHook="remove-image" theme="icon-whitesecondary" onClick={onRemoveImage}>
-                  <Delete size="1.2em"/>
+                  <Delete/>
                 </Button>
               </Tooltip>
             </div>

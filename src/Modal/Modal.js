@@ -163,7 +163,7 @@ class Modal extends WixComponent {
         className={styles.closeButton}
         data-hook="modal-close-button"
         >
-        <X size="18px"/>
+        <X/>
       </div>
     );
   };
