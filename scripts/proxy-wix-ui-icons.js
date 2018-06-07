@@ -1,4 +1,5 @@
-const fs = require('fs-extra');
+const fs = require('fs');
+const shell = require('child_process').execSync;
 const MODULE_NAME = 'wix-ui-icons-common';
 const ICONS_DIR = './new-icons';
 
@@ -54,8 +55,13 @@ const createIndexFile = (icons, iconsDir) => {
   fs.writeFileSync(`${iconsDir}/index.js`, content);
 };
 
+const copySync = (src, dist) => {
+  shell(`mkdir -p ${dist}`);
+  shell(`cp -r ${src}/* ${dist}`);
+};
+
 const copyIconsToSrcForBackcompability = iconsDir => {
-  fs.copySync(iconsDir, `./src/${iconsDir}`);
+  copySync(iconsDir, `./src/${iconsDir}`);
 };
 
 const createIconsProxyFiles = (moduleName, iconsDir) => {
