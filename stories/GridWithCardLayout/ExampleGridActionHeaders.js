@@ -68,7 +68,7 @@ export default () =>
                   title="Card header" buttonOnClick={() => {
                     alert('Clicked!');
                   }} buttonPrefix={<Add/>} buttonTitle="Click Me!"
-                                            />
+                                           />
                 <Card.Content>
                   <Row>
                     <Col span={12}>
@@ -84,7 +84,7 @@ export default () =>
                   title="Card header" buttonOnClick={() => {
                     alert('Clicked!');
                   }} theme="fullblue" buttonSuffix={<ChevronDown/>} buttonTitle="Click Me!"
-                                                                      />
+                                                                    />
                 <Card.Content>
                   <Row>
                     <Col span={6}>
@@ -122,7 +122,7 @@ export default () =>
                 withoutDivider title="Header" subtitle="No divider" buttonOnClick={() => {
                   alert('Clicked!');
                 }} theme="fullblue" buttonPrefix={<ChevronDown/>} buttonTitle="Click Me!"
-                                                                    />
+                                                                  />
               <Card.Content>
                 <Row>
                   <Col span={6}>
@@ -157,7 +157,7 @@ export default () =>
               withoutDivider title="Card header no content" subtitle="No divider" buttonOnClick={() => {
                 alert('Clicked!');
               }} buttonPrefix={<ChevronDown/>} buttonTitle="Click Me!"
-                                                 />
+                                               />
           </Card>
         </Col>
       </Row>

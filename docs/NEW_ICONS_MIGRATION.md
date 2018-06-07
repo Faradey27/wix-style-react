@@ -24,7 +24,7 @@ if you want to migrate icons in different folder, you can use --path param
 
 Example 1
 ```
-  import Add from 'wix-style-react/icons/Add';
+  import Add from 'wix-style-react/new-icons/Add';
 
   export default () => (
     <div>
@@ -34,8 +34,10 @@ Example 1
 ```
 
 Example 2
+> Warning: till WSR migrate to yoshi@2.0.0, such code will add all icons to the bundle
+
 ```
-  import {Add} from 'wix-style-react/icons';
+  import {Add} from 'wix-style-react/new-icons';
 
   export default () => (
     <div>
@@ -43,4 +45,6 @@ Example 2
     </div>
   )
 ```
+
+Note: Icon accept size prop, which will be used as width and height for Icon.
 
