@@ -21,11 +21,11 @@ const defaultBlock = {
 };
 
 /*
-  here we are checking is link relative(if it contain 'https' or http or '//')
-  and if it not relative, then we add '//' at the beginning of it,
-  to make link absolute(instead of relative)
+  here we are checking is link absolute(if it contain 'https' or http or '//')
+  and if it not absolute, then we add '//' at the beginning of it,
+  to make link absolute
 */
-const makeHrefAbsolute = href => /^(https?:)?\/\//.test(href) ? href : `//${href}`;
+export const makeHrefAbsolute = href => /^(https?:)?\/\//.test(href) ? href : `//${href}`;
 
 class RichTextArea extends WixComponent {
   static propTypes = {
