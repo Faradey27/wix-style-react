@@ -34,7 +34,7 @@ describe('DatePicker', () => {
   describe('default', () => {
     eyes.it('should show inputDriver', () => {
       expect(inputDriver.isVisible()).toBe(true);
-    });
+    }, {version: '<Icons/> - use new set of icons'});
 
     eyes.it('should open calendar when click on inputDriver', () => {
       inputDriver.click();

@@ -60,7 +60,7 @@ class ButtonWithOptions extends WixComponent {
 
     return [
       this.cleanOptionToSimpleTextForm(selectedOption.props.children),
-      <span key={1} style={{marginLeft: '10px'}}>
+      <span key={1} style={{marginLeft: '10px', lineHeight: 0}}>
         <ChevronDown/>
       </span>
     ];
