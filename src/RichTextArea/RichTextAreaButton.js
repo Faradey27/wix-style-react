@@ -45,7 +45,7 @@ const buttons = {
   image: {
     icon: Image,
     tooltipText: 'Image',
-    size: 14
+    size: 30
   }
 };
 

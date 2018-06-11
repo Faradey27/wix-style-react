@@ -39,12 +39,12 @@ class RichTextAreaLinkForm extends Component {
         <div className={styles.buttons}>
           <span className={styles.button}>
             <Button theme="icon-standardsecondary" onClick={this.props.onCancel} height="small" type="button">
-              <X width="11" height="11"/>
+              <X/>
             </Button>
           </span>
           <span className={styles.button}>
             <Button theme="icon-standard" height="small" type="submit" disabled={!this.state.href}>
-              <Check width="10" height="12"/>
+              <Check/>
             </Button>
           </span>
         </div>
