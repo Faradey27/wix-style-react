@@ -108,10 +108,10 @@
     "date-fns": "^1.29.0",
     "deep-eql": "^3.0.0",
     "difference": "^1.0.2",
-    "jscodeshift": "^0.5.0",
     "hoist-non-react-methods": "^1.1.0",
     "is-image": "^1.0.1",
     "is-url": "^1.2.2",
+    "jscodeshift": "^0.5.0",
     "lodash": "^4.17.4",
     "moment": "2.19.2",
     "omit": "^1.0.1",
@@ -130,7 +130,7 @@
     "slate": "^0.20.3",
     "wix-animations": "^1.0.141",
     "wix-ui-backoffice": "1.0.258",
-    "wix-ui-icons-common": "1.0.39",
+    "wix-ui-icons-common": "1.0.41",
     "wix-ui-test-utils": "^1.0.0"
   },
   "jest": {

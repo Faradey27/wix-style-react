@@ -74,9 +74,15 @@ const createIconsProxyFiles = (moduleName, iconsDir) => {
     fs.mkdirSync(`${iconsDir}/system`);
   }
   Object.keys(commonIconProxyFileContents)
-    .forEach(iconName => createFile(iconName, commonIconProxyFileContents[iconName], `${iconsDir}/`));
+    .forEach(iconName => {
+      createFile(iconName, commonIconProxyFileContents[iconName], `${iconsDir}/`);
+      console.log('\x1b[36m', `"${iconName}" was created`);
+    });
   Object.keys(systemProxyFileContents)
-    .forEach(iconName => createFile(iconName, systemProxyFileContents[iconName], `${iconsDir}/system/`));
+    .forEach(iconName => {
+      createFile(iconName, systemProxyFileContents[iconName], `${iconsDir}/system/`);
+      console.log('\x1b[36m', `"system/${iconName}" was created`);
+    });
 
   createIndexFile(commonIconProxyFileContents, iconsDir);
 
