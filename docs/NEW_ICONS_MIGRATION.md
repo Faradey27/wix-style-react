@@ -6,17 +6,17 @@ Now you have two choices:
 1) Do migration by hands based on mapping
 2) run our migration script
 ```
-  migrate-to-icons-v2
+  npx migrate-to-icons-v2
 ```
 such command will migrate all .js files inside src/ folder to new icons,
 if you want to migrate icons in different folder, you can use --path param
 ```
-  migrate-to-icons-v2 --path stories/
+  npx migrate-to-icons-v2 --path stories/
 ```
 
 # Motivation
 
-* current icons do not have standart sizes
+* current icons do not have standard sizes
 * a lot of current icons are broken
 * it is tricky to import and to use current icons
 
