@@ -106,7 +106,7 @@ class EditableSelector extends WixComponent {
                 />
               <div className={styles.optionMenu}>
                 <ButtonWithOptions.Button onClick={() => this.deleteItem(index)} dataHook="delete-item" type="button" height="small" theme="icon-greybackground">
-                  <Delete />
+                  <Delete/>
                 </ButtonWithOptions.Button>
                 <ButtonWithOptions.Button onClick={() => this.editItem(index)} dataHook="edit-item" height="small" theme="fullblue">
                   {editButtonText}

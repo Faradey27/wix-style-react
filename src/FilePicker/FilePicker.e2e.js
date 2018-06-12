@@ -17,8 +17,8 @@ describe('FilePicker', () => {
 
         expect(driver.getSubLabel()).toBe('No file chosen (Max size 5 MB)');
 
-      driver.getInput().sendKeys(absolutePath);
-      expect(driver.getSubLabel()).toBe('surf-musa.png');
-    });
+        driver.getInput().sendKeys(absolutePath);
+        expect(driver.getSubLabel()).toBe('surf-musa.png');
+      });
   }, {version: '<Icons/> - use new set of icons'});
 });

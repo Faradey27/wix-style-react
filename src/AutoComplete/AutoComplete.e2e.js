@@ -23,8 +23,8 @@ describe('AutoComplete', () => {
         driver.getInput().sendKeys('first');
         expect(driver.getDropdownItemsCount()).toEqual(1);
 
-      expect(driver.getDropdownItem(0)).toBe('First option');
-    });
+        expect(driver.getDropdownItem(0)).toBe('First option');
+      });
   }, {version: '<Icons/> - use new set of icons'});
 
   eyes.it('should choose one of autocomplete items', () => {
@@ -37,7 +37,7 @@ describe('AutoComplete', () => {
         driver.click();
         driver.getDropdownItem(2).click();
 
-      expect(driver.getInput().getAttribute('value')).toBe('Third option');
-    });
+        expect(driver.getInput().getAttribute('value')).toBe('Third option');
+      });
   }, {version: '<Icons/> - use new set of icons'});
 });
