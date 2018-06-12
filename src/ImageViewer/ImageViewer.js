@@ -13,7 +13,6 @@ import AddItem from '../AddItem/AddItem';
 class ImageViewer extends WixComponent {
 
   render() {
-
     const {
       imageUrl,
       onAddImage,
