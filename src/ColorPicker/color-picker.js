@@ -91,7 +91,7 @@ export default class ColorPicker extends WixComponent {
   }
 
   change(color) {
-    this.setState({current: color}, () => {
+    this.setState({current: color, previous: this.state.current}, () => {
       this.props.onChange(color);
     });
   }
