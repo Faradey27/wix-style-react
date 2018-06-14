@@ -103,7 +103,6 @@ export default class ColorPicker extends WixComponent {
   cancel() {
     this.props.onCancel(this.state.previous);
   }
-
 }
 
 function equal(color1, color2) {
