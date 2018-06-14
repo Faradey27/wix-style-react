@@ -80,7 +80,7 @@ describe('Range', () => {
       expect(driver.isFocusedFirst()).toBe(false);
       await driver.clickFirst();
       expect(driver.isFocusedFirst()).toBe(true);
-    }, {version: '<Icons/> - use new set of icons'});
+    }, {version: '<Icons /> - use new set of icons'});
 
     eyes.it('should show focused styles for last item', async () => {
       expect(driver.isFocusedLast()).toBe(false);

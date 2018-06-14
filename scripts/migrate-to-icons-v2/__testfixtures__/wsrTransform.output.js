@@ -4,10 +4,10 @@ import s from './DataTable.scss';
 import classNames from 'classnames';
 import InfiniteScroll from './InfiniteScroll';
 import WixComponent from '../BaseComponents/WixComponent';
-import Hint from '../../new-icons/Hint';
 import SortByArrowUp from '../../new-icons/system/SortByArrowUp';
 import {Add, Check, ChevronDown} from '../../new-icons';
 import {OpenModal} from '../../new-icons';
+import Hint from '../../new-icons/Hint';
 import {Animator} from 'wix-animations';
 
 export const DataTableHeader = props => (
