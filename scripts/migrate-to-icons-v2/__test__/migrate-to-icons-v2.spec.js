@@ -6,6 +6,12 @@ describe('Check migration script', () => {
     defineTest(__dirname, 'index', null, 'generalTransform');
   });
 
+  it('check deep import transformation for external projects', () => {
+    process.env.MIGRATION = 'wix-style-react';
+    defineTest(__dirname, 'index', null, 'deepImport');
+    process.env.MIGRATION = '';
+  });
+
   it('check wsr transformation', () => {
     process.env.MIGRATION = 'wix-style-react';
     defineTest(__dirname, 'index', null, 'wsrTransform');
