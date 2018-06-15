@@ -57,20 +57,20 @@ export default class extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.defaultValue !== this.props.defaultValue) {
-      this.setState(this.getInitTime(nextProps.defaultValue));
+    const isDefaultValueChanged = nextProps.defaultValue !== this.props.defaultValue;
+    const isAmPmModeChanged = nextProps.disableAmPm !== this.props.disableAmPm;
+    if (isAmPmModeChanged || isDefaultValueChanged) {
+      this.setState(this.getInitTime(nextProps.defaultValue, nextProps.disableAmPm));
     }
   }
 
-  isAmPmMode() {
-    return !this.props.disableAmPm && moment('2016-04-03 13:14:00').format('LT').indexOf('PM') !== -1;
-  }
+  isAmPmMode = disableAmPm => !disableAmPm && moment('2016-04-03 13:14:00').format('LT').indexOf('PM') !== -1
 
-  getInitTime(value) {
+  getInitTime(value, disableAmPm) {
     let time = value || moment(),
       am = time.hours() < 12;
 
-    const ampmMode = this.isAmPmMode();
+    const ampmMode = this.isAmPmMode(disableAmPm);
 
     ({time, am} = this.normalizeTime(am, time, ampmMode));
     const text = this.formatTime(time, ampmMode);
