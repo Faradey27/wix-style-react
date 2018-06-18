@@ -54,6 +54,7 @@ export default class ColorPickerConverter extends WixComponent {
           minWidth={0}
           items={tabs}
           activeId={activeTab}
+          type="uniformFull"
           onClick={this.changeTab}
           />
         {activeTab === HEX && <ColorPickerConverterHex current={current} onChange={this.props.onChange}/>}
