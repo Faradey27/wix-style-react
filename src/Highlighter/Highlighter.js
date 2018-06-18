@@ -16,8 +16,6 @@ const childKeyGenerator = () => {
   return () => `highlighted-child-${childKey++}`;
 };
 
-let nextChildKey = childKeyGenerator();
-
 const ELEM_TYPES = {
   STRING: 'string',
   ARRAY: 'array',
@@ -38,7 +36,7 @@ const getElementType = element => {
   return '';
 };
 
-const highlight = (element, match) => {
+const highlight = (element, match, nextChildKey) => {
   if (!element) {
     return null;
   }
@@ -50,12 +48,12 @@ const highlight = (element, match) => {
         return React.cloneElement(
           elem,
           {...elem.props, key: nextChildKey()},
-          highlight(elem.props.children, match)
+          highlight(elem.props.children, match, nextChildKey)
         );
       }
       return elem;
     },
-    [ELEM_TYPES.ARRAY]: elem => elem.map(el => highlight(el, match))
+    [ELEM_TYPES.ARRAY]: elem => elem.map(el => highlight(el, match, nextChildKey))
   };
 
   return elementTypesMap[elementType] ? elementTypesMap[elementType](element, match) : element;
@@ -69,14 +67,14 @@ class Highlighter extends WixComponent {
 
   constructor() {
     super();
-    // we want to drop counter on component creation
-    nextChildKey = childKeyGenerator();
+    // we want to create new react keys generator for instance of highlighter
+    this.nextChildKey = childKeyGenerator();
   }
 
   render() {
     return (
       <span>
-        {highlight(this.props.children, this.props.match)}
+        {highlight(this.props.children, this.props.match, this.nextChildKey)}
       </span>
     );
   }
