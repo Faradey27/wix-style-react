@@ -48,6 +48,18 @@ describe('TimeInput', () => {
       expect(driver.getValue()).toBe(format24Hours(props.defaultValue));
     });
 
+    it(`should allow rendering time in 24 hours mode(dynamic update)`, () => {
+      const props = {
+        defaultValue: defaultMoment,
+        disableAmPm: false
+      };
+      const driver = createDriver(<TimePicker {...props}/>);
+      expect(driver.getValue()).toBe(format12Hours(props.defaultValue));
+
+      driver.setProps({disableAmPm: true});
+      expect(driver.getValue()).toBe(format24Hours(props.defaultValue));
+    });
+
     it(`should display am/pm indicator when in 12 hours mode`, () => {
       const props = {
         defaultValue: defaultMoment,

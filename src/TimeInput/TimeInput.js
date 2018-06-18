@@ -52,7 +52,7 @@ export default class extends Component {
       focus: false,
       lastCaretIdx: 0,
       hover: false,
-      ...this.getInitTime(this.props.defaultValue)
+      ...this.getInitTime(this.props.defaultValue, this.props.disableAmPm)
     };
   }
 
