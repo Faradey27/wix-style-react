@@ -8,6 +8,7 @@ import Label from '../Label';
 import styles from './Checkbox.scss';
 import WixComponent from '../BaseComponents/WixComponent';
 import {withFocusable, focusableStates} from '../common/Focusable';
+import lowPriorityWarning from '../utils/lowPriorityWarning';
 
 /** a simple WixStyle checkbox */
 class Checkbox extends WixComponent {
@@ -21,6 +22,7 @@ class Checkbox extends WixComponent {
 
   static propTypes = {
     /** used for automatic testing */
+    active: bool, // TODO remove in next major version
     checked: bool,
     children: node,
     disabled: bool,
@@ -30,7 +32,7 @@ class Checkbox extends WixComponent {
 
     /** used for automatic testing */
     hover: bool,
-    size: oneOf(['medium']),
+    size: oneOf(['medium', 'large']), // TODO remove in next major version
     onChange: func
   };
 
@@ -42,6 +44,15 @@ class Checkbox extends WixComponent {
     }
   };
 
+  componentDidMount() {
+    super.componentDidMount();
+    lowPriorityWarning('Checkbox prop "size" with value "large" is deprecated and will be removed in next major release, please use "medium" size instead');
+  }
+
+  componentDidUpdate() {
+    lowPriorityWarning('Checkbox prop "size" with value "large" is deprecated and will be removed in next major release, please use "medium" size instead');
+  }
+
   _id = `${Checkbox.displayName}-${uniqueId()}`;
 
   render() {
@@ -52,6 +63,7 @@ class Checkbox extends WixComponent {
       disabled,
       hasError,
       hover,
+      active,
       size,
       onChange,
       children
@@ -64,6 +76,7 @@ class Checkbox extends WixComponent {
           styles.unchecked,
       {
         [styles.hover]: hover,
+        [styles.active]: active,
         [styles.disabled]: disabled,
         [styles.hasError]: hasError
       }

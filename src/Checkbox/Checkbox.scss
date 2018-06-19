@@ -51,6 +51,27 @@
   box-sizing: border-box;
 }
 
+/* TODO remove .large in next major version */
+.large {
+  width: 20px;
+  height: 20px;
+
+  .inner {
+    width: 18px;
+    height: 18px;
+
+    > svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
+
+.indeterminate .large .inner > svg {
+  width: 10px;
+  height: 10px;
+}
+
 .inner {
   display: flex;
   align-items: center;
