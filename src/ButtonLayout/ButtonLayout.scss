@@ -820,7 +820,7 @@ $base-transition: all 100ms linear;
     @extend .t4_2;
   }
 
-  pointer-events: none;
+  cursor: default;
   background-color: $D55;
   border-color: $D55;
 }
@@ -849,14 +849,14 @@ $base-transition: all 100ms linear;
     @extend .t3_4;
   }
 
-  pointer-events: none;
+  cursor: default;
   background-color: transparent;
   border-color: $D55;
 }
 
 .button.close-standard.disabled,
 .button.close-dark.disabled {
-  pointer-events: none;
+  cursor: default;
   background-color: transparent;
   border-color: transparent;
   color: $D55;
