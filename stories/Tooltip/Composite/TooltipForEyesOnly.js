@@ -15,28 +15,58 @@ export default class TooltipForEyesOnly extends Component {
     super();
     this.state = {
       content: SHORT_CONTENT,
+      disabledButtonWithTooltip: false,
       style: {}
     };
+    // small trick to allow to update state of component from e2e test
+    window.setComponentState = state => this.setState(state);
+  }
+
+  renderTooltip() {
+    return [
+      <Tooltip
+        active
+        key="tooltip"
+        shouldUpdatePosition
+        showImmediately
+        showTrigger={'custom'}
+        hideTrigger={'custom'}
+        appendToParent
+        content={<div data-hook="tooltip-e2e-tooltip">{this.state.content}</div>}
+        >
+        <div style={this.state.style}>My Father is a Tooltip</div>
+      </Tooltip>,
+      <Button key="button" onClick={() => this._onClick()}>Change State</Button>
+    ];
+  }
+
+  renderDisabledButtonWithTooltip() {
+    return (
+      <Tooltip
+        shouldUpdatePosition
+        showImmediately
+        appendToParent
+        content="Some tooltip"
+        >
+        <Button
+          dataHook="disabled-button"
+          disabled
+          type="button"
+          >
+          Hover Me
+        </Button>
+      </Tooltip>
+    );
   }
 
   render() {
-    const {style, content} = this.state;
     const isE2e = global.self === global.top;
 
     return isE2e ? (
       <div data-hook="tooltip-e2e-wrapper">
-        <Tooltip
-          active
-          shouldUpdatePosition
-          showImmediately
-          showTrigger={'custom'}
-          hideTrigger={'custom'}
-          appendToParent
-          content={<div data-hook="tooltip-e2e-tooltip">{content}</div>}
-          >
-          <div style={style}>My Father is a Tooltip</div>
-        </Tooltip>
-        <Button onClick={() => this._onClick()}>Change State</Button>
+        {
+          this.state.disabledButtonWithTooltip ? this.renderDisabledButtonWithTooltip() : this.renderTooltip()
+        }
       </div>
     ) : null;
   }

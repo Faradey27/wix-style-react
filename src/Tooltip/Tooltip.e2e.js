@@ -11,6 +11,16 @@ describe('Tooltip', () => {
     browser.get(storyUrl);
   });
 
+  eyes.it('should show tooltip when button disabled', async () => {
+    browser.executeScript('window.setComponentState({disabledButtonWithTooltip: true})');
+    const driver = tooltipTestkitFactory({dataHook: tooltipDataHook});
+
+    await waitForVisibilityOf(driver.tooltipElement(), 'Cannot find disabled button');
+    await driver.hover(driver.tooltipElement());
+    const content = await driver.tooltipElementText();
+    expect(content).toContain('Some tooltip');
+  });
+
   eyes.it('should see tooltip centered above element', () => {
     const driver = tooltipTestkitFactory({dataHook});
 
