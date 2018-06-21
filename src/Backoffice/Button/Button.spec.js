@@ -27,35 +27,35 @@ describe('Button', () => {
   });
 
   it('should not call focusableOnFocus when disabled', () => {
-    const focusableOnFocus = jest.fn();
-    const driver = createDriver(<Button focusableOnFocus={focusableOnFocus} disabled/>);
+    const focus = jest.fn();
+    const driver = createDriver(<Button focusableOnFocus={focus} disabled/>);
 
-    driver.focusableOnFocus();
-    expect(focusableOnFocus).toHaveBeenCalledTimes(0);
+    driver.focus();
+    expect(focus).toHaveBeenCalledTimes(0);
   });
 
   it('should not call focusableOnBlur when disabled', () => {
-    const focusableOnBlur = jest.fn();
-    const driver = createDriver(<Button focusableOnBlur={focusableOnBlur} disabled/>);
+    const blur = jest.fn();
+    const driver = createDriver(<Button focusableOnBlur={blur} disabled/>);
 
-    driver.focusableOnBlur();
-    expect(focusableOnBlur).toHaveBeenCalledTimes(0);
+    driver.blur();
+    expect(blur).toHaveBeenCalledTimes(0);
   });
 
   it('should call onMouseEnter when disabled', () => {
-    const onMouseEnter = jest.fn();
-    const driver = createDriver(<Button onMouseEnter={onMouseEnter} disabled/>);
+    const mouseEnter = jest.fn();
+    const driver = createDriver(<Button onMouseEnter={mouseEnter} disabled/>);
 
-    driver.onMouseEnter();
-    expect(onMouseEnter).toHaveBeenCalledTimes(1);
+    driver.mouseEnter();
+    expect(mouseEnter).toHaveBeenCalledTimes(1);
   });
 
   it('should call onMouseLeave when disabled', () => {
-    const onMouseLeave = jest.fn();
-    const driver = createDriver(<Button onMouseLeave={onMouseLeave} disabled/>);
+    const mouseLeave = jest.fn();
+    const driver = createDriver(<Button onMouseLeave={mouseLeave} disabled/>);
 
-    driver.onMouseLeave();
-    expect(onMouseLeave).toHaveBeenCalledTimes(1);
+    driver.mouseLeave();
+    expect(mouseLeave).toHaveBeenCalledTimes(1);
   });
 
   it('should get disabled class', () => {
