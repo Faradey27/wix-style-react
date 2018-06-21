@@ -2,6 +2,7 @@ import React from 'react';
 import CodeExample from 'wix-storybook-utils/CodeExample';
 
 import Button from 'wix-style-react/Button';
+import Tooltip from 'wix-style-react/Tooltip';
 
 import ExampleDisabledButtonWithTooltip from './ExampleDisabledButtonWithTooltip';
 import ExampleDisabledButtonWithTooltipRaw from '!raw-loader!./ExampleDisabledButtonWithTooltip';
