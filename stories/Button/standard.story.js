@@ -1,7 +1,10 @@
 import React from 'react';
+import CodeExample from 'wix-storybook-utils/CodeExample';
 
 import Button from 'wix-style-react/Button';
-import Tooltip from 'wix-style-react/Tooltip';
+
+import ExampleDisabledButtonWithTooltip from './ExampleDisabledButtonWithTooltip';
+import ExampleDisabledButtonWithTooltipRaw from '!raw-loader!./ExampleDisabledButtonWithTooltip';
 
 import * as Icons from 'wix-style-react/Icons';
 
@@ -28,28 +31,8 @@ export default {
   },
 
   examples: (
-    <div>
-      {
-        // we want to show this just for E2E test
-        global.self === global.top ? (
-          <div data-hook="tooltip-e2e-wrapper">
-            <Tooltip
-              shouldUpdatePosition
-              showImmediately
-              appendToParent
-              content="Some tooltip"
-              >
-              <Button
-                dataHook="disabled-button"
-                disabled
-                type="button"
-                >
-                Hover Me
-              </Button>
-            </Tooltip>
-          </div>
-        ) : null
-      }
-    </div>
+    <CodeExample title="Disabled button with tooltip" code={ExampleDisabledButtonWithTooltipRaw}>
+      <ExampleDisabledButtonWithTooltip/>
+    </CodeExample>
   )
 };
