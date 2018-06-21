@@ -1,13 +1,14 @@
 import eyes from 'eyes.it';
-import {buttonTestkitFactory, getStoryUrl, waitForVisibilityOf} from '../../../testkit/protractor';
+import {buttonTestkitFactory, waitForVisibilityOf} from '../../../testkit/protractor';
 import autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
 import React from 'react';
+import {createStoryUrl} from '../../../test/utils/protractor';
 import {runFocusTests} from '../../common/Focusable/FocusableTestsE2E';
 
 const NO_DESCRIPTION = '';
 
 describe('Backoffice Button', () => {
-  const storyUrl = getStoryUrl('5. Buttons', '5.1 Standard');
+  const storyUrl = createStoryUrl({kind: '5. Buttons', story: '5.1 Standard'});
   const driver = buttonTestkitFactory({dataHook: 'storybook-button'});
 
   // Specific as opposed to 'Generic' tests like the Focusable tests.
@@ -45,6 +46,13 @@ describe('Backoffice Button', () => {
     eyes.it('should render disabled', async () => {
       await autoExampleDriver.setProps({disabled: true});
       expect(await driver.isButtonDisabled()).toBe(true);
+    });
+
+    eyes.it('should show tooltip when button disabled', async () => {
+      await waitForVisibilityOf(driver.tooltipElement(), 'Cannot find button with tooltip');
+      await driver.hover(driver.tooltipChildElement());
+      const content = await driver.tooltipElementText();
+      expect(content).toContain('Some tooltip');
     });
 
     eyes.it('should render prefix & sufix', async () => {
