@@ -1,10 +1,23 @@
-# How to deprecate?
+# What we can deprecate?
+1. prop types removal with deprecation console logs - for small changes in API that are not relevant
+2. Feature flags - for new designs or small behavior change that might affect existing functionality / toggling new/old components. this allows smooth migration.
+3. Major version - for breaking changes and new APIs
+
+All kind of deprecations should be documented in the CHANGELOG.
 
 ## Deprecating components
+Deprecating a component means we change API drastically,
+so we have a completely new component. If we decide to completely remove
+the component in a major version, no need to deprecate the component at all,
+but usually we would like to do it gradually with backward compatibility.
+
+In such cases, we suggest keeping the src/ComponentName folder, because users still use this path.
+Then, in the index file of it, map between the new/old component using some feature flag.
+featureFlagOn ? NewComponent : OldComponent
+
 1. Move your component to `wix-style-react/src/Deprecated` folder
 2. Update all internal imports of your component
-3. Check that all tests are passing
-4. Use  deprecationLog to warn the user that he using deprecated component and explain him his next steps
+3. Use  deprecationLog inside old component folder to warn the user that he using deprecated component and explain him his next steps
 Example
 ```javascript
   ...
@@ -18,7 +31,6 @@ Example
     ...
   }
 ```
-5. Do not forgot to add test, that check warn message
 
 ## Deprecating props
 1. Remove your prop from propTypes definition(to prevent showing it in docs)
