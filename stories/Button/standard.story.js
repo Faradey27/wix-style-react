@@ -1,10 +1,6 @@
 import React from 'react';
-import CodeExample from 'wix-storybook-utils/CodeExample';
 
 import Button from 'wix-style-react/Button';
-
-import ExampleDisabledButtonWithTooltip from './ExampleDisabledButtonWithTooltip';
-import ExampleDisabledButtonWithTooltipRaw from '!raw-loader!./ExampleDisabledButtonWithTooltip';
 
 import * as Icons from 'wix-style-react/Icons';
 
@@ -28,11 +24,5 @@ export default {
     onMouseLeave: () => 'Mouse Leave!',
     prefixIcon: icons,
     suffixIcon: icons
-  },
-
-  examples: (
-    <CodeExample title="Disabled button with tooltip" code={ExampleDisabledButtonWithTooltipRaw}>
-      <ExampleDisabledButtonWithTooltip/>
-    </CodeExample>
-  )
+  }
 };
