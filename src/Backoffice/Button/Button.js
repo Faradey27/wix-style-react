@@ -64,13 +64,13 @@ class Button extends WixComponent {
     return (
       <ButtonLayout {...buttonLayoutProps}>
         <button
-          onClick={disabled ? null : onClick}
+          onClick={onClick}
           disabled={disabled}
           type={type}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
-          onFocus={disabled ? null : this.props.focusableOnFocus} // For some reason eslint react/prop-types rule doesn't work here ?!#$
-          onBlur={disabled ? null : this.props.focusableOnBlur}
+          onFocus={this.props.focusableOnFocus} // For some reason eslint react/prop-types rule doesn't work here ?!#$
+          onBlur={this.props.focusableOnBlur}
           {...focusableStates(this.props)}
           {...pickAccessibilityProps(this.props)}
           >
