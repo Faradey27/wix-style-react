@@ -13,8 +13,11 @@ Types of changes:
 1. **Breaking** for breaking changes
 
 ## next
-## Added
 - `<DropdownLayout/>` - add `minWidthPixels` prop. This prop is availble in `<Dropdown/>`, `<XXXWithOptions/>`, `<MultiSelect/>` and similar components... [#1914](https://github.com/wix/wix-style-react/pull/1914)
+
+## Fixed
+- `<DatePicker/>` - migrate to new icons [#1894](https://github.com/wix/wix-style-react/pull/1922)
+- `<DataTable/>` - migrate to new icons [#1894](https://github.com/wix/wix-style-react/pull/1922)
 
 ## 4.6.1 - 2018-07-02
 ## Fixed
