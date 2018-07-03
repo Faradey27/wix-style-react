@@ -15,9 +15,11 @@ Types of changes:
 ## next
 - `<DropdownLayout/>` - add `minWidthPixels` prop. This prop is availble in `<Dropdown/>`, `<XXXWithOptions/>`, `<MultiSelect/>` and similar components... [#1914](https://github.com/wix/wix-style-react/pull/1914)
 
-## Fixed
+## Migrated to new icons
 - `<DatePicker/>` - migrate to new icons [#1894](https://github.com/wix/wix-style-react/pull/1922)
 - `<DataTable/>` - migrate to new icons [#1894](https://github.com/wix/wix-style-react/pull/1922)
+- `<ColorPicker/>` - migrate to new icons [#1894](https://github.com/wix/wix-style-react/pull/1925)
+- `<Button/>` - migrate to new icons [#1894](https://github.com/wix/wix-style-react/pull/1925)
 
 ## 4.6.1 - 2018-07-02
 ## Fixed
