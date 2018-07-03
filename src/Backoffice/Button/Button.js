@@ -9,8 +9,8 @@ import {pickAccessibilityProps} from '../../common/accessibility';
 
 const ICON_SIZES = {
   'x-small': '8px',
-  small: '8px',
-  medium: '12px'
+  small: '12px',
+  medium: '24px'
 };
 
 class Button extends WixComponent {
@@ -31,7 +31,7 @@ class Button extends WixComponent {
   static defaultProps = ButtonLayout.defaultProps;
 
   addIcon = (className, icon, height) => {
-    const iconSize = ICON_SIZES[height] || '16px';
+    const iconSize = ICON_SIZES[height] || '24px';
     const dataHook = className === styles.prefix ? 'btn-prefix' : 'btn-suffix';
 
     return (
