@@ -29,3 +29,8 @@ package-lock.json
 /new-icons/
 /src/new-icons/system
 /src/new-icons/*.js
+
+scrollBarsMixins.scss
+colors.scss
+!src/scrollBarsMixins.scss
+!src/colors.scss

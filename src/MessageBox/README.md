@@ -29,6 +29,7 @@
 | onClose | func | onCancel | - | Close button callback, the default is onCancel callback |
 | title | Node | - | - | title of the Message Box |
 | children | array | - | - | Message box content |
+| maxHeight | string or number | - | - | Message box content max height |
 | buttonsHeight | string | small | - | The size of the button, can be small, medium or large |
 | closeButton | bool | true | - | Should the x button appear or not |
 | disableCancel | bool | false | - | Disable cancel button |

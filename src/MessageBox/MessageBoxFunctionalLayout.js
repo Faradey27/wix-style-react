@@ -32,7 +32,11 @@ class MessageBoxFunctionalLayout extends WixComponent {
     return (
       <div className={styles.content} style={{width}}>
         <HeaderLayout title={title} onCancel={onClose ? onClose : onCancel} theme={theme} closeButton={closeButton}/>
-        <div className={classNames(styles.body, noBodyPadding ? styles.noPadding : styles.withPadding)} data-hook="message-box-body">
+        <div
+          className={classNames(styles.body, noBodyPadding ? styles.noPadding : styles.withPadding)}
+          data-hook="message-box-body"
+          style={{maxHeight: this.props.maxHeight}}
+          >
           {children}
         </div>
         {
@@ -55,6 +59,7 @@ MessageBoxFunctionalLayout.propTypes = {
   width: PropTypes.string,
   title: PropTypes.node,
   children: PropTypes.any,
+  maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   buttonsHeight: PropTypes.string,
   closeButton: PropTypes.bool,
   disableCancel: PropTypes.bool,
