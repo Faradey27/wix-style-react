@@ -114,6 +114,19 @@ export const withFocusable = Component => {
 
     static defaultProps = Component.defaultProps;
 
+    componentDidUpdate(prevProps) {
+      /*
+        in case when button was focused and then become disabled,
+        we need to trigger blur logic and remove all listers, as disabled button
+        do not trigger onFocus and onBlur events
+      */
+      const isFocused = this.state.focus || this.state.focusVisible;
+      const isBecomeDisabled = !prevProps.disabled && this.props.disabled;
+      if (isFocused && isBecomeDisabled) {
+        this.onBlur();
+      }
+    }
+
     onFocus = () => {
       this.setState({focus: true, focusVisible: inputMethod.isKeyboard()});
       inputMethod.subscribe(this, () => {
