@@ -73,7 +73,6 @@ class Button extends WixComponent {
     } = this.props;
 
     const buttonLayoutProps = omit(['id', 'onClick', 'prefixIcon', 'suffixIcon', 'type'], this.props);
-
     return (
       <ButtonLayout {...buttonLayoutProps}>
         <button

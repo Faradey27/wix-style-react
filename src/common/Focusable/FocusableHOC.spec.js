@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {mount} from 'enzyme';
+import Button from './../../Button';
 
 import {createDriverFactory} from '../../test-common';
 
@@ -245,4 +246,58 @@ describe('FocusableHOC', () => {
     });
   });
 
+  describe('regressions', () => {
+    class ButtonWithDisabledState extends React.Component {
+      state = {disabled: false}
+
+      handleButtonClick = () => {
+        this.setState({disabled: true});
+      }
+
+      render() {
+        return (
+          <div>
+            <Button
+              dataHook="disabled-button"
+              disabled={this.state.disabled}
+              onClick={this.handleButtonClick}
+              >
+              click me
+            </Button>
+            <input
+              placeholder="click the button and type here"
+              onChange={() => this.setState({disabled: false})}
+              />
+          </div>
+        );
+      }
+    }
+
+    it('ISSUE-1721: Fix focusable button in disabled state', () => {
+      const component = mount(<ButtonWithDisabledState/>);
+      const button = component.find('button');
+      const input = component.find('input');
+
+      /* by default should not have focus and should not be disabled */
+      expect(button.getDOMNode().disabled).toBeFalsy();
+      expect(button.getDOMNode().attributes['data-focus']).toBeFalsy();
+
+      /* become focused */
+      button.simulate('focus');
+      expect(button.getDOMNode().attributes['data-focus']).toBeTruthy();
+
+      /* click on button after that, button should become disabled */
+      button.simulate('click');
+      expect(button.getDOMNode().disabled).toBeTruthy();
+      /* bug was here, after button become disabled, focus should disappear */
+      expect(button.getDOMNode().attributes['data-focus']).toBeFalsy();
+
+      /* input change, after that should be disabled === false */
+      input.simulate('change', {target: {value: '123'}});
+      expect(button.getDOMNode().disabled).toBeFalsy();
+
+      /* bug was here, after input change, button should become unfocused */
+      expect(button.getDOMNode().attributes['data-focus']).toBeFalsy();
+    });
+  });
 });
