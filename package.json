@@ -1,7 +1,7 @@
 {
   "name": "wix-style-react",
   "description": "wix-style-react",
-  "version": "4.15.0",
+  "version": "5.0.0-alpha",
   "main": "./dist/src/index.js",
   "files": [
     "dist",
@@ -29,7 +29,7 @@
     "build": "npm run lint && svg2react-icon && npm run proxy-wix-ui-icons && npm run copy-public-styles && yoshi build && build-storybook && npm run export-components",
     "pr-postbuild": "npx teamcity-surge-autorelease@^1.0.0 --dist=storybook-static",
     "storybook": "start-storybook -p 6006",
-    "postpublish": "npx teamcity-surge-autorelease@^1.0.0 --dist=storybook-static",
+    "postpublish": "npx teamcity-surge-autorelease@^1.0.0 --dist=storybook-static --ver=v5-alpha",
     "export-components": "import-path --path src",
     "lint": "yoshi lint",
     "proxy-wix-ui-icons": "node scripts/proxy-wix-ui-icons"
