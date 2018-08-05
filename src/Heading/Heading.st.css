@@ -5,58 +5,68 @@
 
 :import {
   -st-from: "wix-ui-backoffice/dist/src/typography.st.css";
-  -st-named: fontThin, fontLight;
+  -st-named: fontLight, fontRoman, fontMedium;
 }
-  
+
 .root {
-  -st-states: appearance(enum(H1, H2, H3, H4)), light;
+  -st-states: appearance(enum(H1, H2, H3, H4, H5, H6)), light;
 }
 
 .root:appearance(H1) {
-  font-family: value(fontThin);
+  font-family: value(fontMedium);
   font-size: 36px;
   line-height: 48px;
   color: value(headingText);
 }
 
-.root:appearance(H1):light {
-  color: value(lightHeadingText);
-}
-
 .root:appearance(H2) {
   font-family: value(fontLight);
+  font-size: 28px;
+  line-height: 42px;
+  color: value(headingText);
+}
+
+.root:appearance(H3) {
+  font-family: value(fontRoman);
   font-size: 20px;
   line-height: 24px;
   color: value(headingText);
 }
 
-.root:appearance(H2):light {
-  color: value(lightHeadingText);
-}
-
-.root:appearance(H3) {
-  font-family: value(fontLight);
-  font-size: 13px;
-  line-height: 24px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: value(subheadingText);
-}
-
-.root:appearance(H3):light {
-  color: value(lightSubheadingText);
-}
-
 .root:appearance(H4) {
-  font-family: value(fontLight);
-  font-size: 10px;
-  line-height: 18px;
+  font-family: value(fontRoman);
+  font-size: 18px;
+  line-height: 24px;
+  color: value(headingText);
+}
+
+.root:appearance(H5) {
+  font-family: value(fontMedium);
+  font-size: 12px;
+  line-height: 24px;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: value(subheadingText);
 }
 
+.root:appearance(H6) {
+  font-family: value(fontMedium);
+  font-size: 10px;
+  line-height: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: value(subheadingText);
+}
+
+.root:appearance(H1):light,
+.root:appearance(H2):light,
+.root:appearance(H3):light,
 .root:appearance(H4):light {
+  color: value(lightHeadingText);
+}
+
+.root:appearance(H5):light,
+.root:appearance(H6):light {
   color: value(lightSubheadingText);
 }
 
