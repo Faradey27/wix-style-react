@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import oldStyle from './DataTable.old.scss';
-import newStyle from './DataTable.scss';
+import styles from './DataTable.scss';
 import typography from '../Typography/Typography.scss';
 import classNames from 'classnames';
 import InfiniteScroll from './InfiniteScroll';
@@ -15,7 +14,7 @@ import omit from 'lodash/omit';
 
 export const DataTableHeader = props => (
   <div>
-    <table style={{width: props.width}} className={newStyle.table}>
+    <table style={{width: props.width}} className={styles.table}>
       <TableHeader {...props}/>
     </table>
   </div>
@@ -37,7 +36,7 @@ class DataTable extends WixComponent {
   }
 
   get style() {
-    return this.props.newDesign ? newStyle : oldStyle;
+    return styles;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -264,7 +263,7 @@ class TableHeader extends Component {
   };
 
   get style() {
-    return this.props.newDesign ? newStyle : oldStyle;
+    return styles;
   }
 
   renderSortingArrow = (sortDescending, colNum) => {
@@ -367,7 +366,6 @@ DataTable.defaultProps = {
   scrollElement: null,
   useWindow: true,
   rowVerticalPadding: 'medium',
-  newDesign: false,
   showLastRowDivider: true
 };
 
@@ -463,8 +461,6 @@ DataTable.propTypes = {
   allowMultiDetailsExpansion: PropTypes.bool,
   /** Should we hide the header of the table. */
   hideHeader: PropTypes.bool,
-  /** A flag specifying weather to apply the new layout/design update. Default will change to true in the next major release (version 5.0.0) */
-  newDesign: PropTypes.bool,
     /** A flag specifying weather to show a divider after the last row */
   showLastRowDivider: PropTypes.bool
 };
