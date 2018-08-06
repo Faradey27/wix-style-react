@@ -64,16 +64,6 @@ describe('Checkbox', () => {
     expect(driver.isIndeterminate()).toBeTruthy();
   });
 
-  it('should warn with deprecation warning, if size === "large" passed', () => {
-    const cachedConsoleError = global.console.error;
-    global.console.warn = jest.fn();
-    global.console.error = jest.fn();
-    createDriver(<Checkbox size="large"/>);
-    expect(global.console.warn).toBeCalledWith('Warning: Checkbox prop "size" with value "large" is deprecated and will be removed in next major release, please use "medium" size instead');
-    global.console.warn = cachedConsoleWarn;
-    global.console.error = cachedConsoleError;
-  });
-
   it('should warn with deprecation warning, if active prop passed', () => {
     global.console.warn = jest.fn();
     createDriver(<Checkbox active/>);
