@@ -65,7 +65,6 @@ class ControlledExample extends Component {
           </div>
           <div className={styles.button}>
             <Button
-              ons
               height="medium"
               suffixIcon={<ChevronDown/>}
               onClick={onClick(2)}
