@@ -37,7 +37,6 @@ export class Form extends Component {
         <ButtonWithOptions.Button
           {...this.props}
           {...icons}
-          withNewIcons
           >
           {this.props.iconOnly ? <Close size={iconSize}/> : this.props.text}
         </ButtonWithOptions.Button>

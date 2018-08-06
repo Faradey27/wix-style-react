@@ -96,7 +96,6 @@ class CollapsedHeader extends WixComponent {
     const buttonElement = (
       <div className={styles.button} onClick={this.stopPropagation}>
         <Button
-          withNewIcons
           dataHook="button"
           height="medium"
           prefixIcon={this.state.isCollapsed ? <ChevronDown/> : <ChevronUp/>}

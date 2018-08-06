@@ -13,7 +13,6 @@ export default {
   componentPath: '../../src/Backoffice/Button',
 
   componentProps: {
-    withNewIcons: true,
     theme: 'fullblue',
     children: 'Click Me',
     dataHook: 'storybook-button'

@@ -14,7 +14,6 @@ export default {
   componentPath: '../../src/Backoffice/Button',
 
   componentProps: {
-    withNewIcons: true,
     theme: 'icon-standard',
     children: <Icons.X/>
   },

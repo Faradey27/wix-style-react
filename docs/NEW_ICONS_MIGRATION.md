@@ -15,29 +15,6 @@ if you want to migrate icons in different folder, you can use --path param
 ```
   npx migrate-to-icons-v2 --path stories/
 ```
-3) in case you use `<Button />` with new icons, like:
-```js
-<Button
-  onClick={() => "Clicked!"}
-  onMouseEnter={() => "Mouse Enter!"}
-  onMouseLeave={() => "Mouse Leave!"}
-  prefixIcon={<Add />}
->
-  Click Me
-</Button>
-```
-you need to path new prop to the Button - `withNewIcons`
-```js
-<Button
-  onClick={() => "Clicked!"}
-  onMouseEnter={() => "Mouse Enter!"}
-  onMouseLeave={() => "Mouse Leave!"}
-  prefixIcon={<Add />}
-  withNewIcons
->
-  Click Me
-</Button>
-```
 
 ## Why did we create new icons
 

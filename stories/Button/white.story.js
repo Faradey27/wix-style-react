@@ -13,7 +13,6 @@ export default {
   componentPath: '../../src/Backoffice/Button',
 
   componentProps: {
-    withNewIcons: true,
     theme: 'whiteblueprimary',
     children: 'Click Me'
   },

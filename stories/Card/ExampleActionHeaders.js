@@ -14,7 +14,6 @@ export default () =>
         <Col span={6}>
           <Card>
             <Card.ButtonHeader
-              withNewIcons
               title="Card header"
               buttonOnClick={() => alert('Clicked!')}
               theme="fullblue"

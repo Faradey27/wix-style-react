@@ -55,7 +55,6 @@ class ControlledExample extends Component {
         <div className={styles.buttons_holder}>
           <div className={styles.button}>
             <Button
-              withNewIcons
               height="medium"
               suffixIcon={<ChevronDown/>}
               onClick={onClick(1)}
@@ -66,7 +65,7 @@ class ControlledExample extends Component {
           </div>
           <div className={styles.button}>
             <Button
-              withNewIcons
+              ons
               height="medium"
               suffixIcon={<ChevronDown/>}
               onClick={onClick(2)}
@@ -77,7 +76,6 @@ class ControlledExample extends Component {
           </div>
           <div className={styles.button}>
             <Button
-              withNewIcons
               height="medium"
               suffixIcon={<ChevronDown/>}
               onClick={onClick(3)}
