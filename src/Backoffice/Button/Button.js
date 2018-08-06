@@ -1,5 +1,5 @@
 import React from 'react';
-import {bool, func, node, string} from 'prop-types';
+import {func, node, string} from 'prop-types';
 import styles from './Button.scss';
 import WixComponent from '../../BaseComponents/WixComponent';
 import ButtonLayout from '../../ButtonLayout/ButtonLayout';
@@ -8,12 +8,6 @@ import {withFocusable, focusableStates} from '../../common/Focusable';
 import {pickAccessibilityProps} from '../../common/accessibility';
 
 const ICON_SIZES = {
-  'x-small': '8px',
-  small: '8px',
-  medium: '12px'
-};
-
-const NEW_ICON_SIZES = {
   large: '24px',
   medium: '24px',
   small: '18px',
@@ -30,21 +24,18 @@ class Button extends WixComponent {
     prefixIcon: node,
     suffixIcon: node,
     type: string,
-    withNewIcons: bool,
     onClick: func,
     onMouseEnter: func,
     onMouseLeave: func
   }
 
   static defaultProps = {
-    ...ButtonLayout.defaultProps,
-    withNewIcons: false
+    ...ButtonLayout.defaultProps
   };
 
   addIcon = (className, icon, height) => {
-    const iconSizes = this.props.withNewIcons ? NEW_ICON_SIZES : ICON_SIZES;
-    const fallbackSize = this.props.withNewIcons ? iconSizes.medium : '16px';
-    const iconSize = iconSizes[height] || fallbackSize;
+    const fallbackSize = ICON_SIZES.medium || '16px';
+    const iconSize = ICON_SIZES[height] || fallbackSize;
     const dataHook = className === styles.prefix ? 'btn-prefix' : 'btn-suffix';
 
     return (
