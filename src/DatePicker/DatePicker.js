@@ -45,6 +45,7 @@ export default class DatePicker extends WixComponent {
     super(props);
 
     this.state = {
+      value: props.value || new Date(),
       isOpen: props.isOpen || false,
       isDateInputFocusable: !props.isOpen
     };
@@ -77,7 +78,11 @@ export default class DatePicker extends WixComponent {
   };
 
   closeCalendar = () => {
-    this.setState({isOpen: false});
+    this.setState({isOpen: false}, () => {
+      if (this.props.onClose) {
+        this.props.onClose();
+      }
+    });
     /*
       to fix case when user press tab in opened Calendar and:
         1. Calendar become closed

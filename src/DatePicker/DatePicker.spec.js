@@ -106,6 +106,17 @@ describe('DatePicker', () => {
         expect(calendarDriver.isVisible()).toBe(false);
       });
 
+      it('on press "Escape" key and call onClose callback', () => {
+        const onClose = jest.fn();
+        const {inputDriver, calendarDriver} = createDriver(<DatePicker onChange={noop} onClose={onClose}/>);
+
+        inputDriver.trigger('click');
+        calendarDriver.triggerKeyDown({key: 'Escape', keyCode: 27});
+
+        expect(calendarDriver.isVisible()).toBe(false);
+        expect(onClose).toBeCalled();
+      });
+
       it('on press "Tab" key', () => {
         const preventDefault = jest.fn();
         const {inputDriver, calendarDriver} = createDriver(<DatePicker onChange={noop}/>);
