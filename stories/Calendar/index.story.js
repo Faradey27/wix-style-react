@@ -25,12 +25,6 @@ export default {
     dataHook: 'calendar'
   },
 
-  exampleProps: {
-    onChange: () => 'onChange',
-    onClose: () => 'onClose',
-    filterDate: date => !!date
-  },
-
   examples: (
     <Container>
       <Row>
