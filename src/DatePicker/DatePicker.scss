@@ -8,6 +8,11 @@
   z-index: 1;
 }
 
+.calendarRoot :global .DayPicker {
+  box-shadow: $Shadow30;
+  border-radius: 8px;
+}
+
 .icon {
   margin: 0 6px;
   color: $B10;

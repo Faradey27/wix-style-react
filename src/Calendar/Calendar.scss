@@ -19,13 +19,11 @@ $hoverBoxShadow: 0 0 0 $boxShadowWidth $F00;
 
 .calendar :global .DayPicker {
   width: $calendarWidth;
-  box-shadow: $Shadow30;
   @include FontLight;
   font-size: 14px;
   line-height: 1.29;
   color: $D40;
   background-color: $D80;
-  border-radius: 8px;
 
   abbr {
     text-decoration: none;
