@@ -1,8 +1,8 @@
 import React from 'react';
-import Calendar from '../../src/Calendar';
-import Tooltip from '../../src/Tooltip';
-import Button from '../../src/Button';
-import DateIcon from '../../src/new-icons/Date';
+import Calendar from 'wix-style-react/Calendar';
+import Tooltip from 'wix-style-react/Tooltip';
+import Button from 'wix-style-react/Button';
+import DateIcon from 'wix-style-react/new-icons/Date';
 
 export default () => (
   <Tooltip
