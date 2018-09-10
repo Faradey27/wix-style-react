@@ -15,6 +15,7 @@ export default class Calendar extends WixComponent {
 
   static defaultProps = {
     locale: 'en',
+    className: '',
     filterDate: () => true,
     shouldCloseOnSelect: true,
     rtl: false,
@@ -136,7 +137,7 @@ export default class Calendar extends WixComponent {
 
   render() {
     return (
-      <div className={styles.calendar}>
+      <div className={`${styles.calendar} ${this.props.className}`}>
         <DayPicker
           ref={this._focusSelectedDay}
           {...this._createDayPickerProps()}
@@ -151,6 +152,8 @@ Calendar.propTypes = {
   /* TODO WIP, uncomment after feature done
   twoMonths: PropTypes.bool,
   */
+
+  className: PropTypes.string,
 
   /** Callback function called whenever the user selects a day in the calendar */
   onChange: PropTypes.func.isRequired,

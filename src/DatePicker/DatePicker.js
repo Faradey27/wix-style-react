@@ -221,7 +221,7 @@ export default class DatePicker extends WixComponent {
           data-hook={calendarDataHook}
           className={styles.calendarRoot}
           >
-          {isOpen && <Calendar {...calendarProps}/>}
+          {isOpen && <Calendar className={styles.datePickerCalendar} {...calendarProps}/>}
         </div>
       </div>
     );
