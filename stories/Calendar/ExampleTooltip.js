@@ -13,6 +13,7 @@ export default () => (
     shouldCloseOnClickOutside
     showTrigger="click"
     maxWidth="300px"
+    overflow="hidden"
     padding={0}
     content={(
       <Calendar value={new Date()}/>

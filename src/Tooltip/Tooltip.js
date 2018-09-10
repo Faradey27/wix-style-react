@@ -33,6 +33,9 @@ class Tooltip extends WixComponent {
     bounce: PropTypes.bool,
     disabled: PropTypes.bool,
 
+    /** The tooltip overflow */
+    overflow: PropTypes.string,
+
     /** The tooltip max width  */
     maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
@@ -223,6 +226,7 @@ class Tooltip extends WixComponent {
           padding={this.props.padding}
           arrowStyle={this.state.arrowStyle}
           maxWidth={this.props.maxWidth}
+          overflow={this.props.overflow}
           minWidth={this.props.minWidth}
           size={this.props.size}
           textAlign={this.props.textAlign}

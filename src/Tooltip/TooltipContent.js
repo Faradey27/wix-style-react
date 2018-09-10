@@ -10,6 +10,9 @@ class TooltipContent extends Component {
     /** alignment of the tooltip's text  */
     textAlign: PropTypes.string,
 
+    /** The tooltip overflow */
+    overflow: PropTypes.string,
+
     /** The tooltip max width  */
     maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
@@ -100,6 +103,7 @@ class TooltipContent extends Component {
       size,
       textAlign,
       maxWidth,
+      overflow,
       minWidth,
       padding,
       color,
@@ -112,7 +116,7 @@ class TooltipContent extends Component {
       <div className={styles.root} style={style} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
         <div className={classnames({[styles.fadeIn]: !showImmediately})}>
           <div className={classnames({[styles[`bounce-${arrowPlacement}`]]: bounce})}>
-            <div ref={ref => this.tooltip = ref} className={classnames(styles.tooltip, styles[theme], styles[size])} style={{maxWidth, minWidth, textAlign, padding, lineHeight, color}}>
+            <div ref={ref => this.tooltip = ref} className={classnames(styles.tooltip, styles[theme], styles[size])} style={{maxWidth, minWidth, textAlign, padding, lineHeight, overflow, color}}>
               <div data-hook="tooltip-content">{children}</div>
 
               {showArrow && (
