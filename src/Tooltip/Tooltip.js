@@ -13,6 +13,13 @@ const renderSubtreeIntoContainer = ReactDOM.unstable_renderSubtreeIntoContainer;
 //maintain a 60fps rendering
 const createAThrottledOptimizedFunction = cb => () => window.requestAnimationFrame(throttle(cb, 16));
 
+const popoverConfig = {
+  padding: 0,
+  overflow: 'hidden',
+  showTrigger: 'click',
+  hideTrigger: 'click'
+};
+
 /** A Tooltip component */
 class Tooltip extends WixComponent {
   static displayName = 'Tooltip';
@@ -32,6 +39,9 @@ class Tooltip extends WixComponent {
     active: PropTypes.bool,
     bounce: PropTypes.bool,
     disabled: PropTypes.bool,
+
+    /** Apply popover styles and even triggers */
+    popover: PropTypes.bool,
 
     /** The tooltip overflow */
     overflow: PropTypes.string,
@@ -190,12 +200,12 @@ class Tooltip extends WixComponent {
   componentWillReceiveProps(nextProps) {
     super.componentWillReceiveProps && super.componentWillReceiveProps(nextProps);
     if (nextProps.active !== this.props.active || nextProps.disabled !== this.props.disabled) {
-      if (this.state.visible && this.props.hideTrigger === 'custom') {
+      if (this.state.visible && this.getTriggers().hideTrigger === 'custom') {
         if (!nextProps.active || nextProps.disabled) {
           this.hide(nextProps);
         }
       }
-      if (!this.state.visible && this.props.showTrigger === 'custom') {
+      if (!this.state.visible && this.getTriggers().showTrigger === 'custom') {
         if (nextProps.active && !nextProps.disabled) {
           this.show(nextProps);
         }
@@ -203,8 +213,18 @@ class Tooltip extends WixComponent {
     }
   }
 
+  getTriggers() {
+    return {
+      hideTrigger: this.props.popover ? 'click' : this.props.hideTrigger,
+      showTrigger: this.props.popover ? 'click' : this.props.showTrigger
+    };
+  }
+
   renderTooltipIntoContainer = () => {
     if (this._mountNode && this.state.visible) {
+      const overflow = this.props.popover ? popoverConfig.overflow : this.props.overflow;
+      const padding = this.props.popover ? popoverConfig.padding : this.props.padding;
+
       const arrowPlacement = {top: 'bottom', left: 'right', right: 'left', bottom: 'top'};
       const position = this.props.relative ? 'relative' : 'absolute';
       const tooltip = (
@@ -223,10 +243,10 @@ class Tooltip extends WixComponent {
           bounce={this.props.bounce}
           arrowPlacement={arrowPlacement[this.props.placement]}
           style={{zIndex: this.props.zIndex, position}}
-          padding={this.props.padding}
           arrowStyle={this.state.arrowStyle}
           maxWidth={this.props.maxWidth}
-          overflow={this.props.overflow}
+          overflow={overflow}
+          padding={padding}
           minWidth={this.props.minWidth}
           size={this.props.size}
           textAlign={this.props.textAlign}
@@ -385,9 +405,9 @@ class Tooltip extends WixComponent {
   }
 
   _hideOrShow(event) {
-    if (this.props.hideTrigger === event && !this.state.hidden) {
+    if (this.getTriggers().hideTrigger === event && !this.state.hidden) {
       this.hide();
-    } else if (this.props.showTrigger === event) {
+    } else if (this.getTriggers().showTrigger === event) {
       this.show();
     }
   }
@@ -507,14 +527,14 @@ class Tooltip extends WixComponent {
   }
 
   _onTooltipContentEnter() {
-    if (this.props.showTrigger === 'custom') {
+    if (this.getTriggers().showTrigger === 'custom') {
       return;
     }
     this.show();
   }
 
   _onTooltipContentLeave() {
-    if (this.props.hideTrigger === 'custom') {
+    if (this.getTriggers().hideTrigger === 'custom') {
       return;
     }
     this._onMouseLeave();

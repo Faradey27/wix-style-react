@@ -6,17 +6,15 @@ import DateIcon from 'wix-style-react/new-icons/Date';
 
 export default () => (
   <Tooltip
+    popover
     placement="bottom"
     alignment="left"
     showArrow={false}
     hideTrigger="click"
     shouldCloseOnClickOutside
-    showTrigger="click"
     maxWidth="300px"
-    overflow="hidden"
-    padding={0}
     content={(
-      <Calendar value={new Date()}/>
+      <Calendar value={new Date()} onChange={() => {}}/>
     )}
     >
     <Button theme="icon-standard">

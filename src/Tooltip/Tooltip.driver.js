@@ -86,6 +86,11 @@ const tooltipDriverFactory = ({element, wrapper}) => {
       const values = content.style._values;
       return values.padding;
     },
+    getOverflow: () => {
+      const content = getTooltipContent();
+      const values = content.style._values;
+      return values.overflow;
+    },
     setProps: props => {
       ReactDOM.render(<div ref={r => element = r}><Tooltip {...props}/></div>, wrapper);
     }

@@ -366,6 +366,39 @@ describe('Tooltip', () => {
     });
   });
 
+  describe('popover', () => {
+    it('should show a tooltip on click', () => {
+      const driver = createDriver(<Tooltip popover {..._props}>{children}</Tooltip>);
+      driver.click();
+      expect(driver.isShown()).toBeFalsy();
+      return resolveIn(30).then(() => {
+        expect(driver.isShown()).toBeTruthy();
+      });
+    });
+
+    it('should hide a tooltip on click', () => {
+      const driver = createDriver(<Tooltip popover {..._props}>{children}</Tooltip>);
+      driver.click();
+      expect(driver.isShown()).toBeFalsy();
+      return resolveIn(30).then(() => {
+        expect(driver.isShown()).toBeTruthy();
+        driver.click();
+        return resolveIn(30).then(() => {
+          expect(driver.isShown()).toBeFalsy();
+        });
+      });
+    });
+
+    it('should not have a padding and should have overflow: hidden', () => {
+      const driver = createDriver(<Tooltip popover {..._props}>{children}</Tooltip>);
+      driver.click();
+      return resolveIn(30).then(() => {
+        expect(driver.getPadding()).toBe('0px');
+        expect(driver.getOverflow()).toBe('hidden');
+      });
+    });
+  });
+
   describe('testkit', () => {
 
     const createTooltipTestkitDriver = props => {
