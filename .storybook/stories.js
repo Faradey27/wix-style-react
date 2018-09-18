@@ -120,7 +120,6 @@ import '../stories/Layout';
 
 //WIP
 import '../stories/DragAndDrop/DragAndDrop.js';
-import '../stories/DragAndDrop/SortableList.js';
 
 // TPA
 import '../stories/TPA/Button';

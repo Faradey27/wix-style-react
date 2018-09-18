@@ -2,15 +2,16 @@ import React from 'react';
 import {storiesOf} from '@storybook/react';
 
 import Heading from 'wix-style-react/Heading';
-import Text from 'wix-style-react/Text';
 import Badge from 'wix-style-react/Badge';
+
+import SortableListReadme from './../../src/SortableList/README.md';
+import SortableListReadmeAPI from './../../src/SortableList/API.md';
 
 import CodeExample from 'wix-storybook-utils/CodeExample';
 import Markdown from 'wix-storybook-utils/Markdown';
 
 import SingleAreaList from './SortableList/SingleAreaList';
 import SingleAreaListRaw from '!raw-loader!./SortableList/SingleAreaList';
-import SingleAreaListReadme from './SortableList/README.md';
 
 import MultiAreaList from './SortableList/MultiAreaList';
 import MultiAreaListRaw from '!raw-loader!./SortableList/MultiAreaList';
@@ -48,32 +49,15 @@ ${DraggableMultiAreaListRaw}
 ${DraggableMultiAreaListScssRaw}
 `;
 
-const TODO = `
-----
-## TODO
-
-### missing concepts
-- explain how to use the provider (can't be part of the component). might want to have a generic provider in the lib.
-- all common styles that are part of the library should be exposed as css classes
-
-### examples
-- list multiple area
-- grid single area
-- grid multiple area
-- all examples with/out knobs
-`;
-
-storiesOf('WIP', module)
-  .add('Drag and Drop', () => (
+storiesOf('WIP/Drag And Drop', module)
+  .add('Introduction', () => (<div/>))
+  .add('Styles', () => (<div/>))
+  .add('SortableList', () => (
     <div>
       <Heading>
-        Drag and Drop <Badge skin="danger">Under development</Badge>
+        SortableList <Badge skin="danger">Under development</Badge>
       </Heading>
-      <Text>
-        This section will explain about D&D guidelines in the library, how it should be used and how to extend it
-      </Text>
-
-      <Markdown source={SingleAreaListReadme}/>
+      <Markdown source={SortableListReadme}/>
       <CodeExample title="Sortable List - Single Area" code={SingleAreaListRawCombined}>
         <SingleAreaList/>
       </CodeExample>
@@ -83,6 +67,7 @@ storiesOf('WIP', module)
       <CodeExample title="Sortable List - Draggable Multi Area" code={DraggableMultiAreaListRawCombined}>
         <DraggableMultiAreaList/>
       </CodeExample>
-      <Markdown source={TODO}/>
+      <Markdown source={SortableListReadmeAPI}/>
     </div>
-  ));
+  ))
+  .add('DragDropContextProvider', () => (<div/>));
