@@ -1,0 +1,75 @@
+import React from 'react';
+import classNames from 'classnames';
+import SortableList from 'wix-style-react/SortableList';
+import DragAndDropLarge from 'wix-style-react/new-icons/system/DragAndDropLarge';
+import styles from './StylesExample.scss';
+
+/**
+ * An example for a simple drag and drop list component.
+ */
+export default class StylesExample extends React.Component {
+  constructor() {
+    super();
+    this.state = {items: [
+      {
+        id: 'a',
+        text: 'Item 1'
+      },
+      {
+        id: 'b',
+        text: 'Item 2'
+      },
+      {
+        id: 'c',
+        text: 'Item 3'
+      },
+      {
+        id: 'd',
+        text: 'Item 4'
+      }
+    ]};
+  }
+
+  handleDrop = ({removedIndex, addedIndex}) => {
+    const nextItems = [...this.state.items];
+    nextItems.splice(addedIndex, 0, ...nextItems.splice(removedIndex, 1));
+    this.setState({
+      items: nextItems
+    });
+  };
+
+
+  renderItem = ({isPlaceholder, isPreview, id, connectHandle, previewStyles, item}) => {
+    const classes = classNames(
+      styles.card,
+      {
+        [styles.placeholder]: isPlaceholder,
+        [styles.preview]: isPreview
+      });
+
+    return (
+      <div className={classes} style={previewStyles} data-hook={`item-${id}`}>
+        {connectHandle(
+          <div className={styles.handle} data-hook={`card-${id}-handle`}>
+            <DragAndDropLarge/>
+          </div>
+        )}
+        {item.text}
+      </div>
+    );
+  };
+
+  render() {
+    return (
+      <SortableList
+        containerId="single-area-1"
+        dataHook="list-single-area"
+        withHandle
+        items={this.state.items}
+        renderItem={this.renderItem}
+        onDrop={this.handleDrop}
+        />
+    );
+  }
+}
+

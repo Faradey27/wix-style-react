@@ -26,6 +26,8 @@ import MultiAreaListScssRaw from '!raw-loader!./SortableList/MultiAreaList.scss'
 import DraggableMultiAreaListScssRaw from '!raw-loader!./SortableList/DraggableMultiAreaList.scss';
 
 import Introduction from './Introduction';
+import Styles from './Styles';
+import DragDropContextProvider from './DragDropContextProvider';
 
 const SingleAreaListRawCombined = `
 //SingleAreaList.js
@@ -53,7 +55,8 @@ ${DraggableMultiAreaListScssRaw}
 
 storiesOf('WIP/Drag And Drop', module)
   .add('Introduction', () => <Introduction/>)
-  .add('Styles', () => (<div/>));
+  .add('Styles', () => <Styles/>)
+  .add('DragDropContextProvider', () => <DragDropContextProvider/>);
 
 storiesOf('WIP/Drag And Drop/SortableList', module)
 .add('API', () => (
@@ -77,6 +80,3 @@ storiesOf('WIP/Drag And Drop/SortableList', module)
 .add('Single List', () => (<div/>))
 .add('Multi List', () => (<div/>))
 .add('Multi List with sortable columns', () => (<div/>));
-
-storiesOf('WIP/Drag And Drop', module)
-  .add('DragDropContextProvider', () => (<div/>));
