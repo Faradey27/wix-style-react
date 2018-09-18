@@ -25,6 +25,8 @@ import MultiAreaListScssRaw from '!raw-loader!./SortableList/MultiAreaList.scss'
 
 import DraggableMultiAreaListScssRaw from '!raw-loader!./SortableList/DraggableMultiAreaList.scss';
 
+import Introduction from './Introduction';
+
 const SingleAreaListRawCombined = `
 //SingleAreaList.js
 ${SingleAreaListRaw}
@@ -50,24 +52,31 @@ ${DraggableMultiAreaListScssRaw}
 `;
 
 storiesOf('WIP/Drag And Drop', module)
-  .add('Introduction', () => (<div/>))
-  .add('Styles', () => (<div/>))
-  .add('SortableList', () => (
-    <div>
-      <Heading>
-        SortableList <Badge skin="danger">Under development</Badge>
-      </Heading>
-      <Markdown source={SortableListReadme}/>
-      <CodeExample title="Sortable List - Single Area" code={SingleAreaListRawCombined}>
-        <SingleAreaList/>
-      </CodeExample>
-      <CodeExample title="Sortable List - Multi Area" code={MultiAreaListRawCombined}>
-        <MultiAreaList/>
-      </CodeExample>
-      <CodeExample title="Sortable List - Draggable Multi Area" code={DraggableMultiAreaListRawCombined}>
-        <DraggableMultiAreaList/>
-      </CodeExample>
-      <Markdown source={SortableListReadmeAPI}/>
-    </div>
-  ))
+  .add('Introduction', () => <Introduction/>)
+  .add('Styles', () => (<div/>));
+
+storiesOf('WIP/Drag And Drop/SortableList', module)
+.add('API', () => (
+  <div>
+    <Heading>
+      SortableList <Badge skin="danger">Under development</Badge>
+    </Heading>
+    <Markdown source={SortableListReadme}/>
+    <CodeExample title="Sortable List - Single Area" code={SingleAreaListRawCombined}>
+      <SingleAreaList/>
+    </CodeExample>
+    <CodeExample title="Sortable List - Multi Area" code={MultiAreaListRawCombined}>
+      <MultiAreaList/>
+    </CodeExample>
+    <CodeExample title="Sortable List - Draggable Multi Area" code={DraggableMultiAreaListRawCombined}>
+      <DraggableMultiAreaList/>
+    </CodeExample>
+    <Markdown source={SortableListReadmeAPI}/>
+  </div>
+))
+.add('Single List', () => (<div/>))
+.add('Multi List', () => (<div/>))
+.add('Multi List with sortable columns', () => (<div/>));
+
+storiesOf('WIP/Drag And Drop', module)
   .add('DragDropContextProvider', () => (<div/>));
