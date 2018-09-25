@@ -1,6 +1,8 @@
 import ReactTestUtils from 'react-dom/test-utils';
 import {getInstanceOfDraggableProvider, getInstanceOfDraggableSource, getInstanceOfDraggableTarget} from './driverHelpers';
 
+import publicSortableListDriver from './SortableList.driver';
+
 const sortableListFactory = ({element, wrapper}) => {
   // in case if wrapper is coming from enzyme, we want to get it instance
   const vanillaWrapper = wrapper.instance ? wrapper.instance() : wrapper;
@@ -12,15 +14,11 @@ const sortableListFactory = ({element, wrapper}) => {
   const backend = isCompositeComponent ? getInstanceOfDraggableProvider(vanillaWrapper).getManager().getBackend() : null;
 
   return {
-    exists: () => !!element,
-    reorder: ({removedId, addedId}) => {
-      if (backend) {
-        backend.simulateBeginDrag([getInstanceOfDraggableSource(vanillaWrapper, removedId).getHandlerId()]);
-        backend.simulateHover([getInstanceOfDraggableTarget(vanillaWrapper, addedId).getHandlerId()]);
-        backend.simulateDrop();
-        backend.simulateEndDrag();
-      }
-    }
+    ...publicSortableListDriver({element, wrapper}),
+    beginDrag: itemId => backend && backend.simulateBeginDrag([getInstanceOfDraggableSource(vanillaWrapper, itemId).getHandlerId()]),
+    endDrag: () => backend && backend.simulateEndDrag(),
+    drop: () => backend && backend.simulateDrop(),
+    hover: itemId => backend && backend.simulateHover([getInstanceOfDraggableTarget(vanillaWrapper, itemId).getHandlerId()])
   };
 };
 
