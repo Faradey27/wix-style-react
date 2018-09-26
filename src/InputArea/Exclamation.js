@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
+import FormFieldError from '../new-icons/system/FormFieldError';
 import Tooltip from '../Tooltip';
 import styles from './InputArea.scss';
 
